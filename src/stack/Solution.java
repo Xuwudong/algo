@@ -1,6 +1,7 @@
 package stack;
 
 import java.util.HashMap;
+import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -147,11 +148,40 @@ public class Solution {
         return number.peek();
     }
 
+    public int calculate_8(String s) {
+        char[] arrs = s.toCharArray();
+        int res = 0, sign = 1, n = arrs.length;
+        java.util.Stack<Integer> st = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            if (arrs[i] >= '0') {
+                int num = 0;
+                while (i < n && arrs[i] >= '0') {
+                    num = num * 10 + arrs[i++] - '0';
+                }
+                res += sign * num;
+                i--;
+            } else if (arrs[i] == '+') {
+                sign = 1;
+            } else if (arrs[i] == '-') {
+                sign = -1;
+            } else if (arrs[i] == '(') {
+                st.push(res);
+                st.push(sign);
+                res = 0;
+                sign = 1;
+            } else if (arrs[i] == ')') {
+                res *= st.pop();
+                res += st.pop();
+            }
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
-        System.out.println(new Solution().calculate("(3-(5-(8)-(2+(9-(0-(8-(2))))-(4))-(4)))"));
-        System.out.println(new Solution().calculate("(9-(0-(8-(2))))"));
+        System.out.println(new Solution().calculate_8("(3-(5-(8)-(2+(9-(0-(8-(2))))-(4))-(4)))"));
+        System.out.println(new Solution().calculate_8("(9-(0-(8-(2))))"));
         System.out.println(new Solution()
-                .calculate("1-(3+5-2+(3+19-(3-1-4+(9-4-(4-(1+(3)-2)-5)+8-(3-5)-1)-4)-5)-4+3-9)-4-(3+2-5)-10"));
+                .calculate_8("1-(3+5-2+(3+19-(3-1-4+(9-4-(4-(1+(3)-2)-5)+8-(3-5)-1)-4)-5)-4+3-9)-4-(3+2-5)-10"));
 
 //        System.out.println(new Solution().calculate("(3-(5-(8+4)"));
         // System.out.println(new
