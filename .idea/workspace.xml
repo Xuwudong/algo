@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6fabc1d-f4a2-41c1-aebf-104a1bbee107" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stack/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stack/Solution2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/list/MinStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/list/MinStack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/list/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/list/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/stack/Calculator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/stack/MyQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/stack/MyQueue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/stack/Stack.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/stack/Stack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/stack/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/stack/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stack/Calculator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stack/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/stack/Solution.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,14 +19,14 @@
     <session id="1801132925">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.46" value="1" />
-          <entry key="project.open.time.47" value="1" />
+          <entry key="project.open.time.47" value="2" />
           <entry key="project.open.time.50" value="1" />
           <entry key="project.open.time.64" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -53,12 +43,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3273" />
+          <entry key="java" value="3586" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3273" />
+          <entry key="JAVA" value="3586" />
         </counts>
       </usages-collector>
     </session>
@@ -86,8 +76,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/stack/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1030">
-              <caret line="116" column="32" selection-start-line="116" selection-start-column="28" selection-end-line="116" selection-end-column="32" />
+            <state relative-caret-position="475">
+              <caret line="142" column="9" lean-forward="true" selection-start-line="124" selection-start-column="9" selection-end-line="142" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,7 +88,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/stack/MyQueue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
+            <state relative-caret-position="200">
               <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
@@ -194,7 +184,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="260" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -208,8 +198,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,12 +226,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542288673951" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542351113936" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
@@ -342,18 +332,19 @@
       <workItem from="1541593063173" duration="1988000" />
       <workItem from="1541660481265" duration="10000" />
       <workItem from="1542021608489" duration="6560000" />
-      <workItem from="1542282901947" duration="5541000" />
+      <workItem from="1542282901947" duration="5862000" />
+      <workItem from="1542333920214" duration="8447000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24559000" />
+    <option name="totallyTimeSpent" value="33327000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18976545" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19189766" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -362,8 +353,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3286334" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.48590022" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29501083" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.34924078" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -394,7 +385,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/stack/Solution.java</url>
-          <line>123</line>
+          <line>106</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -406,19 +397,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/stack/Solution.java</url>
-          <line>130</line>
+          <line>124</line>
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/stack/Solution.java</url>
-          <line>69</line>
+          <line>70</line>
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/stack/Solution.java</url>
-          <line>59</line>
+          <line>60</line>
           <properties />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
@@ -427,6 +418,11 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>operators.size() &gt; 0 &amp;&amp; operators.peek().equals(&quot;)&quot;)  &amp;&amp; number.size() &gt;= 2</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>arr[i]</expression-string>
         <language-id>JAVA</language-id>
@@ -468,6 +464,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/stack/MyQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stack/Solution2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="118" />
+          <folding>
+            <element signature="e#0#4682#0" expanded="true" />
+            <marker date="1542283655511" expanded="false" signature="2:4681" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/stack/Stack.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -500,28 +514,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/stack/MyQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/stack/Solution2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="118" />
-          <folding>
-            <element signature="e#0#4682#0" expanded="true" />
-            <marker date="1542283655511" expanded="false" signature="2:4681" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/stack/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1030">
-          <caret line="116" column="32" selection-start-line="116" selection-start-column="28" selection-end-line="116" selection-end-column="32" />
+        <state relative-caret-position="475">
+          <caret line="142" column="9" lean-forward="true" selection-start-line="124" selection-start-column="9" selection-end-line="142" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

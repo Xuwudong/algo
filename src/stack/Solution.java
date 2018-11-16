@@ -41,6 +41,7 @@ public class Solution {
             }
         }
         s = sb.toString();
+        // 将（1）处理为 1
         Pattern p = Pattern.compile("\\(\\s\\d+\\s\\)");
         Matcher m = p.matcher(s);
         while (m.find()) {
@@ -73,72 +74,62 @@ public class Solution {
                 if (operators.isEmpty()) {
                     operators.push(arr[i]);
                 } else {
-                    String c = operators.peek();
-                    // 操作符大于栈顶元素直接push
-                    if (mapping.get(arr[i]) > mapping.get(c)) {
+                    String top = operators.peek();
+                    String oper = top;
+                    // 当前运算符优先级大于栈顶元素直接push
+                    if (mapping.get(arr[i]) > mapping.get(top)) {
                         operators.push(arr[i]);
                     } else {
-                        // 栈顶元素或者操作符是“(”，直接push
-                        if (c.equals("(") || arr[i].equals("(")) {
+                        // 栈顶元素或者当前运算符是“(”，直接push
+                        if (top.equals("(") || arr[i].equals("(")) {
                             operators.push(arr[i]);
                             continue;
                         }
-                        String oper = operators.pop();
-                        // 右括号处理
+                        // 当前运算符优先级小于栈顶元素 且 栈顶元素或者当前运算符是“(” 进行运算流程
+                        // pop出栈顶元素
+                        oper = operators.pop();
+                        // oper为右括号
                         if (oper.equals(")")) {
-                            if (!operators.isEmpty() && operators.peek().equals("(")) {
-                                operators.pop();
-                            }
+                            // 修改运算符同时pop出左括号
                             if (!operators.isEmpty()) {
                                 oper = operators.pop();
                             }
-                            if (operators.size() > 0 && operators.peek().equals("(")) {
+                            if (!operators.isEmpty() && operators.peek().equals("(")) {
                                 operators.pop();
                             }
                         }
+                        operators.push(arr[i]);
                         if (number.size() >= 2) {
                             int num1 = number.pop();
                             int num2 = number.pop();
                             cal(oper, num1, num2);
                         }
-
-                        // 递归处理（2+15-4）-4这种情况 为17-4
-                        while (operators.size() > 0 && !operators.peek().equals(")") && !operators.peek().equals("(") && number.size() >= 2) {
-//                            operators.pop();
-//                            if (!operators.isEmpty() && operators.peek().equals("(")) {
-//                                operators.pop();
-//                            }
-//                            if (!operators.isEmpty()) {
-//                                oper = operators.pop();
-//                            }
-//                            if(operators.size() > 0 && operators.peek().equals("(")){
-//                                operators.pop();
-//                            }
+                    }
+                    // 递归处理（2+15-4）-4这种情况 为17-4
+                    while (operators.size() > 0 && operators.peek().equals(")") && number.size() >= 2) {
+                        operators.pop();
+                        if (!operators.isEmpty()) {
                             oper = operators.pop();
-                            if (number.size() >= 2) {
-                                int num1 = number.pop();
-                                int num2 = number.pop();
-                                cal(oper, num1, num2);
-                            }
                         }
-                        operators.push(arr[i]);
+                        if (!operators.isEmpty() && operators.peek().equals("(")) {
+                            operators.pop();
+                        }
+                        int num1 = number.pop();
+                        int num2 = number.pop();
+                        cal(oper, num1, num2);
                     }
                 }
             }
         }
 
-        //
         while (!operators.isEmpty()) {
             String oper = operators.pop();
             // 右括号处理
             if (oper.equals(")")) {
-                if (!operators.isEmpty() && operators.peek().equals("(")) {
-                    operators.pop();
-                }
                 if (!operators.isEmpty()) {
                     oper = operators.pop();
                 }
-                if (operators.size() > 0 && operators.peek().equals("(")) {
+                if (!operators.isEmpty() && operators.peek().equals("(")) {
                     operators.pop();
                 }
             } else if (oper.equals("(")) {
@@ -148,7 +139,6 @@ public class Solution {
                 int num1 = number.pop();
                 int num2 = number.pop();
                 cal(oper, num1, num2);
-
             }
         }
         if (number.size() != 1 || !operators.isEmpty()) {
@@ -159,8 +149,9 @@ public class Solution {
 
     public static void main(String[] args) {
         System.out.println(new Solution().calculate("(3-(5-(8)-(2+(9-(0-(8-(2))))-(4))-(4)))"));
-//        System.out.println(new Calculator()
-//                .calculate("1-(3+5-2+(3+19-(3-1-4+(9-4-(4-(1+(3)-2)-5)+8-(3-5)-1)-4)-5)-4+3-9)-4-(3+2-5)-10"));
+        System.out.println(new Solution().calculate("(9-(0-(8-(2))))"));
+        System.out.println(new Solution()
+                .calculate("1-(3+5-2+(3+19-(3-1-4+(9-4-(4-(1+(3)-2)-5)+8-(3-5)-1)-4)-5)-4+3-9)-4-(3+2-5)-10"));
 
 //        System.out.println(new Solution().calculate("(3-(5-(8+4)"));
         // System.out.println(new
