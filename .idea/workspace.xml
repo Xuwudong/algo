@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6fabc1d-f4a2-41c1-aebf-104a1bbee107" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/binarysearch/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sort/Sort.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sort/Sort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sort/Sort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sort/Sort.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,55 +19,46 @@
     <session id="1801132925">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.43" value="1" />
+          <entry key="project.open.time.43" value="2" />
           <entry key="project.open.time.46" value="1" />
           <entry key="project.open.time.47" value="2" />
           <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.50" value="1" />
-          <entry key="project.open.time.52" value="1" />
+          <entry key="project.open.time.52" value="2" />
           <entry key="project.open.time.54" value="1" />
           <entry key="project.open.time.64" value="1" />
           <entry key="project.open.time.75" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="java" value="13" />
+          <entry key="java" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="13" />
+          <entry key="JAVA" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6260" />
+          <entry key="java" value="8766" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6260" />
+          <entry key="JAVA" value="8766" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/list/ListNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/list/ListPrac.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -90,16 +80,27 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sort/Sort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+            <state relative-caret-position="525">
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding>
                 <element signature="e#73#74#0" expanded="true" />
                 <element signature="e#122#123#0" expanded="true" />
-                <element signature="e#585#586#0" expanded="true" />
-                <element signature="e#634#635#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/binarysearch/Solution.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="184" column="54" selection-start-line="184" selection-start-column="54" selection-end-line="188" selection-end-column="66" />
+              <folding>
+                <element signature="e#2995#2996#0" expanded="true" />
+                <element signature="e#3029#3030#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -196,6 +197,7 @@
         <option value="$PROJECT_DIR$/src/stack/Calculator.java" />
         <option value="$PROJECT_DIR$/src/stack/Solution.java" />
         <option value="$PROJECT_DIR$/src/sort/Sort.java" />
+        <option value="$PROJECT_DIR$/src/binarysearch/Solution.java" />
       </list>
     </option>
   </component>
@@ -220,7 +222,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -237,13 +238,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543029254603" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543410556001" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -257,7 +259,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Sort">
+  <component name="RunManager" selected="Application.Solution (1)">
     <configuration name="Calculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="stack.Calculator" />
       <module name="algo" />
@@ -271,12 +273,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ListPrac" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="list.ListPrac" />
+    <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="binarysearch.Solution" />
       <module name="algo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="list.*" />
+          <option name="PATTERN" value="binarysearch.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -324,19 +326,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ListPrac" />
       <item itemvalue="Application.Stack" />
       <item itemvalue="Application.Calculator" />
       <item itemvalue="Application.Solution" />
       <item itemvalue="Application.Sort" />
+      <item itemvalue="Application.Solution (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Solution (1)" />
         <item itemvalue="Application.Sort" />
         <item itemvalue="Application.Solution" />
         <item itemvalue="Application.Calculator" />
         <item itemvalue="Application.Stack" />
-        <item itemvalue="Application.ListPrac" />
       </list>
     </recent_temporary>
   </component>
@@ -361,18 +363,20 @@
       <workItem from="1542424145746" duration="6157000" />
       <workItem from="1542594395216" duration="4451000" />
       <workItem from="1542973935597" duration="4712000" />
-      <workItem from="1543026763110" duration="1872000" />
+      <workItem from="1543026763110" duration="2495000" />
+      <workItem from="1543323513180" duration="975000" />
+      <workItem from="1543404726904" duration="5536000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52845000" />
+    <option name="totallyTimeSpent" value="59979000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20042644" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20469083" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -381,8 +385,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24728851" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.34924078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24728851" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.34924078" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -448,6 +452,9 @@
           <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -508,6 +515,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sort/Sort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding>
+            <element signature="e#73#74#0" expanded="true" />
+            <element signature="e#122#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/stack/MyQueue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -558,15 +576,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sort/Sort.java">
+    <entry file="file://$PROJECT_DIR$/src/binarysearch/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+        <state relative-caret-position="211">
+          <caret line="184" column="54" selection-start-line="184" selection-start-column="54" selection-end-line="188" selection-end-column="66" />
           <folding>
-            <element signature="e#73#74#0" expanded="true" />
-            <element signature="e#122#123#0" expanded="true" />
-            <element signature="e#585#586#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
+            <element signature="e#2995#2996#0" expanded="true" />
+            <element signature="e#3029#3030#0" expanded="true" />
           </folding>
         </state>
       </provider>
