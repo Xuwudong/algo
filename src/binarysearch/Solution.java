@@ -181,7 +181,7 @@ public class Solution {
         return -1;
     }
 
-    // hh
+    // hhhh
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 6, 7, 7, 7, 7, 8, 9, 10};
         System.out.println(new Solution().getFirstEle(arr, 7));
