@@ -95,7 +95,6 @@ public class Heap {
 		arr[1] = arr[count];
 		arr[count] = 0;
 		count--;
-		int n = 1;
 		heapify(arr, count, 1);
 	}
 
