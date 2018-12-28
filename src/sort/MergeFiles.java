@@ -5,7 +5,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
+/**
+ * 合并文件
+ * @author APP
+ *
+ */
 public class MergeFiles {
 	public static ArrayList<File> fileList = new ArrayList<>();
 	private static Heap heap = new Heap(101);
