@@ -15,7 +15,6 @@ public class MergeFiles {
 	private static Heap heap = new Heap(101);
 
 	public static void init() {
-
 	}
 
 	public static void main(String[] args) {
