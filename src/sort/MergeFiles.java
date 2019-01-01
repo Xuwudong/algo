@@ -5,21 +5,23 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+
 /**
  * 合并文件
- * @author APP
  *
+ * @author APP
  */
 public class MergeFiles {
-	public static ArrayList<File> fileList = new ArrayList<>();
-	private static Heap heap = new Heap(101);
+    public static ArrayList<File> fileList = new ArrayList<>();
+    private static SmallHeap heap = new SmallHeap(101);
 
-	public static void init() {
-	}
+    public static void init() {
+    }
 
-	public static void main(String[] args) {
-		for(File file:fileList) {
-//			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-		}
-	}
+    public static void main(String[] args) {
+        for (File file : fileList) {
+//            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+
+        }
+    }
 }
