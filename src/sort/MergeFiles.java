@@ -12,6 +12,10 @@ public class MergeFiles {
     public static ArrayList<File> fileList = new ArrayList<>();
     private static SmallHeap heap = new SmallHeap(101);
 
+    /**
+     * 创建文件并写入内容
+     * @param dic
+     */
     public static void create(String dic) {
         File file = new File(dic);
         if (file.isDirectory()) {
