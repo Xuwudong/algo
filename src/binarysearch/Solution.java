@@ -181,7 +181,6 @@ public class Solution {
         return -1;
     }
 
-    // hhhh
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 6, 7, 7, 7, 7, 8, 9, 10};
         System.out.println(new Solution().getFirstEle(arr, 7));
@@ -192,7 +191,6 @@ public class Solution {
         for (int i = 1; i < 7; i++) {
             System.out.print(new Solution().binarySearchCircle(arr2, i) + "  ");
         }
-        System.out.println();
         for (int i = 1; i < 7; i++) {
             System.out.print(new Solution().search(arr2, i) + "  ");
         }
