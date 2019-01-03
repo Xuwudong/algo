@@ -16,7 +16,7 @@ public class MergeFiles {
 
 	public static void main(String[] args) {
 		for(File file:fileList) {
-			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+//			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 		}
 	}
 }
