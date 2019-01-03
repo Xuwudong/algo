@@ -14,6 +14,7 @@ public class MergeFiles {
 
     /**
      * 创建文件并写入内容
+     *
      * @param dic
      */
     public static void create(String dic) {
@@ -60,6 +61,8 @@ public class MergeFiles {
             for (File f : files) {
                 if (f.isDirectory()) {
                     read(f);
+                } else {
+                    fileList.add(f);
                 }
             }
         } else {
@@ -68,7 +71,9 @@ public class MergeFiles {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        create("H:\\data\\mergeFileData");
+//        create("H:\\data\\mergeFileData");
+        File dir = new File("H:\\data\\mergeFileData");
+        read(dir);
         for (File file : fileList) {
             try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
                 String word = br.readLine();
@@ -77,5 +82,6 @@ public class MergeFiles {
                 e.printStackTrace();
             }
         }
+        heap.print();
     }
 }
