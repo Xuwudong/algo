@@ -6,11 +6,11 @@ package sort;
  * @author admin
  *
  */
-public class SmallHeap {
+public class BigHeap {
 	private String[] arr;
 	private int count;
 
-	public SmallHeap(int size) {
+	public BigHeap(int size) {
 		this.arr = new String[size];
 		this.count = 0;
 	}
@@ -50,10 +50,10 @@ public class SmallHeap {
 	public static void heapify(String[] arr, int n, int i) {
 		while (true) {
 			int maxPos = i;
-			if (i * 2 <= n && arr[i].compareTo(arr[i * 2]) > 0) {
+			if (i * 2 <= n && arr[i].compareTo(arr[i * 2]) < 0) {
 				maxPos = i * 2;
 			}
-			if (i * 2 + 1 <= n && arr[maxPos].compareTo(arr[i * 2 + 1]) > 0) {
+			if (i * 2 + 1 <= n && arr[maxPos].compareTo(arr[i * 2 + 1]) < 0) {
 				maxPos = i * 2 + 1;
 			}
 			if (maxPos == i) {
@@ -79,7 +79,7 @@ public class SmallHeap {
 		}
 		int n = ++count;
 		arr[n] = value;
-		while (n / 2 > 0 && arr[n / 2].compareTo(arr[n]) > 0) {
+		while (n / 2 > 0 && arr[n / 2].compareTo(arr[n]) < 0) {
 			swap(arr, n / 2, n);
 			n = n / 2;
 		}
@@ -88,16 +88,14 @@ public class SmallHeap {
 	/**
 	 * 删除堆顶元素
 	 */
-	public String deleteFirst() {
+	public void deleteFirst() {
 		if (count == 0) {
 			throw new Error("array is empty");
 		}
-		String res = arr[1];
 		arr[1] = arr[count];
 		arr[count] = "";
 		count--;
 		heapify(arr, count, 1);
-		return res;
 	}
 
 	public static void swap(String[] arr, int n, int m) {
@@ -107,8 +105,8 @@ public class SmallHeap {
 	}
 
 	public static void main(String[] args) {
-		SmallHeap heap = new SmallHeap(15);
-		for (int i = 9; i > 0; i--) {
+		BigHeap heap = new BigHeap(15);
+		for (int i = 1; i < 10; i++) {
 			heap.insert(i + "");
 		}
 		heap.print();
