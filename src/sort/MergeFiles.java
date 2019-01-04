@@ -113,8 +113,6 @@ public class MergeFiles {
                     if (word != null) {
                         fileReaded.put(file, fileReaded.get(file) + word.length() + 2);
                         heap.insert(word);
-//						String minWord = heap.deleteFirst();
-//						pw.write(minWord + "\r\n");
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -135,22 +133,24 @@ public class MergeFiles {
                             fileReaded.put(file, fileReaded.get(file) + word.length() + 2);
                             heap.insert(word);
                             String minWord = heap.deleteFirst();
+                            pw.write(minWord + "\r\n");
 
+                            // 如果对顶元素来自于file文件中读取的元素，重复读取
+                            // todo 这里不支持有重复元素
                             while (minWord.equals(word)) {
                                 System.out.println(minWord);
-                                pw.write(minWord + "\r\n");
                                 raf.seek(fileReaded.get(file));
                                 word = raf.readLine();
                                 if (word != null && word != "\r\n") {
                                     fileReaded.put(file, fileReaded.get(file) + word.length() + 2);
                                     heap.insert(word);
                                     minWord = heap.deleteFirst();
+                                    pw.write(minWord + "\r\n");
                                 } else {
                                     emptyFiles++;
                                     break;
                                 }
                             }
-
                         } else {
                             emptyFiles++;
                         }
