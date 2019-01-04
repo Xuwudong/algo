@@ -16,11 +16,22 @@ import java.util.Map;
  * @author APP
  */
 public class MergeFiles {
+    /**
+     * 有序文件列表
+     **/
     public static ArrayList<File> fileList = new ArrayList<>();
+    /**
+     * 小顶堆
+     **/
     private static SmallHeap heap = new SmallHeap(102);
+    /**
+     * file -> file pointer
+     **/
     private static HashMap<File, Integer> fileReaded = new HashMap<>();
 
-    // 空文件个数
+    /**
+     * 已读完的文件个数
+     */
     private static int emptyFiles = 0;
 
     /**
@@ -49,6 +60,12 @@ public class MergeFiles {
         }
     }
 
+    /**
+     * 写入内容，每行相差100
+     *
+     * @param fileName
+     * @param i
+     */
     public static void writeFileContent(String fileName, long i) {
         File file = new File(fileName);
         if (file.exists()) {
@@ -64,17 +81,18 @@ public class MergeFiles {
     }
 
     /**
-     * 读取文件
+     * 初始化fileList和fileReaded
      *
-     * @param file
+     * @param dirName
      */
 
-    public static void read(File file) {
+    public static void init(String dirName) {
+        File file = new File(dirName);
         if (file.isDirectory()) {
             File[] files = file.listFiles();
             for (File f : files) {
                 if (f.isDirectory()) {
-                    read(f);
+                    init(f);
                 } else {
                     fileList.add(f);
                     fileReaded.put(f, 0);
@@ -86,10 +104,7 @@ public class MergeFiles {
         }
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
-        create("H:\\data\\mergeFileData");
-        File dir = new File("H:\\data\\mergeFileData");
-        read(dir);
+    public static File createBigFile() {
         File bigFile = new File("H:\\data\\mergeFileData\\bigFile.txt");
         if (!bigFile.exists()) {
             try {
@@ -105,6 +120,15 @@ public class MergeFiles {
                 e.printStackTrace();
             }
         }
+        return bigFile;
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        String path = "H:\\data\\mergeFileData";
+        create(path);
+        init(path);
+        File bigFile = createBigFile();
+
         try (PrintWriter pw = new PrintWriter(new FileOutputStream(bigFile))) {
             for (File file : fileList) {
                 try (RandomAccessFile raf = new RandomAccessFile(file.getAbsolutePath(), "rw")) {
