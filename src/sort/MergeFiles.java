@@ -1,14 +1,16 @@
 package sort;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 合并文件
@@ -23,23 +25,23 @@ public class MergeFiles {
     /**
      * 小顶堆
      **/
-    private static SmallHeap heap = new SmallHeap(102);
+    private static SmallHeap heap = new SmallHeap(101);
     /**
-     * file -> file pointer
+     * file -> fileReader
      **/
-    private static HashMap<File, Integer> fileReaded = new HashMap<>();
+    private static HashMap<File, BufferedReader> readerMap = new HashMap<>();
 
     /**
-     * 已读完的文件个数
+     * 每个文件的行数
      */
-    private static int emptyFiles = 0;
+    private static int fileLine = 100000;
 
     /**
-     * 创建文件并写入内容
+     * 创建小文件(如果存在，将其删除）并写入内容
      *
      * @param dic
      */
-    public static void create(String dic) {
+    public static void create(String dic) throws IOException {
         File file = new File(dic);
         if (!file.exists()) {
             file.mkdirs();
@@ -49,19 +51,19 @@ public class MergeFiles {
             for (int i = 0; i < 100; i++) {
                 File f = new File(fileName + i + ".txt");
                 if (!f.exists()) {
-                    try {
-                        f.createNewFile();
-                        writeFileContent(f.getAbsolutePath(), i);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    f.createNewFile();
+                    writeFileContent(f.getAbsolutePath(), i);
+                } else {
+                    f.delete();
+                    f.createNewFile();
+                    writeFileContent(f.getAbsolutePath(), i);
                 }
             }
         }
     }
 
     /**
-     * 写入内容，每行数字相差100
+     * 写入内容，每行相差<!--fileLine-->
      *
      * @param fileName
      * @param i
@@ -70,9 +72,9 @@ public class MergeFiles {
         File file = new File(fileName);
         if (file.exists()) {
             try (PrintWriter pw = new PrintWriter(new FileOutputStream(file))) {
-                for (int j = 0; j < 100; j++) {
-                    i = i + 100;
+                for (int j = 0; j < fileLine; j++) {
                     pw.write(i + "\r\n");
+                    i = i + fileLine;
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -83,115 +85,106 @@ public class MergeFiles {
     /**
      * 初始化fileList和fileReaded
      *
-     * @param dirName
+     * @param file
+     * @throws FileNotFoundException
      */
 
-    public static void init(String dirName) {
-        File file = new File(dirName);
+    public static void init(File file) throws FileNotFoundException {
         if (file.isDirectory()) {
             File[] files = file.listFiles();
             for (File f : files) {
                 if (f.isDirectory()) {
                     init(f);
                 } else {
-                    fileList.add(f);
-                    fileReaded.put(f, 0);
+                    if (f.getName().indexOf("bigFile") < 0) {
+                        fileList.add(f);
+                        readerMap.put(f, new BufferedReader(new InputStreamReader(new FileInputStream(f))));
+                    }
                 }
             }
         } else {
-            fileList.add(file);
-            fileReaded.put(file, 0);
+            if (file.getName().indexOf("bigFile") < 0) {
+                fileList.add(file);
+                readerMap.put(file, new BufferedReader(new InputStreamReader(new FileInputStream(file))));
+            }
         }
     }
 
     /**
-     * 创建大文件
+     * 新建大文件，如果存在，将其删除
+     *
      * @return
+     * @throws IOException
      */
-    public static File createBigFile() {
-        File bigFile = new File("H:\\data\\mergeFileData\\bigFile.txt");
+    public static File createBigFile() throws IOException {
+        File bigFile = new File("D:\\data\\mergeFileData\\bigFile.txt");
         if (!bigFile.exists()) {
-            try {
-                bigFile.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            bigFile.delete();
-            try {
-                bigFile.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            bigFile.createNewFile();
+        }
+        try (FileWriter fileWriter = new FileWriter(bigFile)) {
+            fileWriter.write("");
+            fileWriter.flush();
         }
         return bigFile;
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
-        String path = "H:\\data\\mergeFileData";
-        create(path);
-        init(path);
-        File bigFile = createBigFile();
-
-        try (PrintWriter pw = new PrintWriter(new FileOutputStream(bigFile))) {
-            for (File file : fileList) {
-                try (RandomAccessFile raf = new RandomAccessFile(file.getAbsolutePath(), "rw")) {
-                    raf.seek(fileReaded.get(file));
-                    String word = raf.readLine();
-                    if (word != null) {
-                        fileReaded.put(file, fileReaded.get(file) + word.length() + 2);
-                        heap.insert(word);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
+    /**
+     * 初始化堆
+     *
+     * @param bigFile
+     * @throws FileNotFoundException
+     */
+    public static void initHeap(File bigFile) throws FileNotFoundException {
+        for (File file : fileList) {
+            BufferedReader reader = readerMap.get(file);
+            String word;
+            try {
+                word = reader.readLine();
+                if (word != null) {
+                    heap.insert(new Node(word, file));
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
-        for (Map.Entry<File, Integer> entry : fileReaded.entrySet()) {
-            System.out.println(entry.getKey().getName() + "\t" + entry.getValue());
-        }
-        heap.print();
-        try (PrintWriter pw = new PrintWriter(new FileOutputStream(bigFile))) {
-            while (emptyFiles < 100) {
-                for (File file : fileList) {
-                    try (RandomAccessFile raf = new RandomAccessFile(file.getAbsolutePath(), "rw")) {
-                        raf.seek(fileReaded.get(file));
-                        String word = raf.readLine();
-                        if (word != null && word != "\r\n") {
-                            fileReaded.put(file, fileReaded.get(file) + word.length() + 2);
-                            heap.insert(word);
-                            String minWord = heap.deleteFirst();
-                            pw.write(minWord + "\r\n");
+    }
 
-                            // 如果对顶元素来自于file文件中读取的元素，重复读取
-                            // todo 这里不支持有重复元素
-                            while (minWord.equals(word)) {
-                                System.out.println(minWord);
-                                raf.seek(fileReaded.get(file));
-                                word = raf.readLine();
-                                if (word != null && word != "\r\n") {
-                                    fileReaded.put(file, fileReaded.get(file) + word.length() + 2);
-                                    heap.insert(word);
-                                    minWord = heap.deleteFirst();
-                                    pw.write(minWord + "\r\n");
-                                } else {
-                                    emptyFiles++;
-                                    break;
-                                }
-                            }
-                        } else {
-                            emptyFiles++;
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            heap.print();
+    /**
+     * 搬移数据到大文件
+     *
+     * @param bigFile
+     */
+    public static void move(File bigFile) {
+        try (PrintWriter pw = new PrintWriter(new FileOutputStream(bigFile))) {
             while (heap.getCount() > 0) {
-                pw.write(heap.deleteFirst() + "\r\n");
+                Node minNode = heap.deleteFirst();
+                pw.write(minNode.getWord() + "\r\n");
+                File file = minNode.getFile();
+                BufferedReader reader = readerMap.get(file);
+                String word = reader.readLine();
+                if (word != null && word != "\r\n") {
+                    Node node = new Node(word, file);
+                    heap.insert(node);
+                }
             }
             heap.print();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) throws IOException {
+        long start = System.currentTimeMillis();
+
+        // 初始化小文件和大文件
+        String path = "D:\\data\\mergeFileData";
+        create(path);
+        init(new File(path));
+        File bigFile = createBigFile();
+        // 移动数据
+        initHeap(bigFile);
+        move(bigFile);
+        long end = System.currentTimeMillis();
+        System.out.println("spend time:" + (end - start) / 1000 + "s");
     }
 }
