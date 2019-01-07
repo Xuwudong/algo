@@ -61,7 +61,7 @@ public class MergeFiles {
     }
 
     /**
-     * 写入内容，每行相差100
+     * 写入内容，每行数字相差100
      *
      * @param fileName
      * @param i
@@ -104,6 +104,10 @@ public class MergeFiles {
         }
     }
 
+    /**
+     * 创建大文件
+     * @return
+     */
     public static File createBigFile() {
         File bigFile = new File("H:\\data\\mergeFileData\\bigFile.txt");
         if (!bigFile.exists()) {
