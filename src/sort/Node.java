@@ -1,13 +1,14 @@
 package sort;
 
+import java.io.File;
+
 public class Node {
 	private String word;
-	private static int num = 0;
-	private int flag;
+	private File file;
 
-	public Node(String word) {
+	public Node(String word,File file) {
 		this.word = word;
-		this.flag = num++;
+		this.setFile(file);
 	}
 
 	public String getWord() {
@@ -18,16 +19,11 @@ public class Node {
 		this.word = word;
 	}
 
-	public int getFlag() {
-		return flag;
+	public File getFile() {
+		return file;
 	}
 
-	public void setFlag(int flag) {
-		this.flag = flag;
-	}
-
-	@Override
-	public String toString() {
-		return "Node [word=" + word + ", flag=" + flag + "]";
+	public void setFile(File file) {
+		this.file = file;
 	}
 }

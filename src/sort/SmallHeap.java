@@ -1,5 +1,7 @@
 package sort;
 
+import java.io.File;
+
 /***
  * 数据结构 ：堆;数组第一个元素不存储数据 堆中的元素个数：count; count = arr.length-1
  *
@@ -113,7 +115,7 @@ public class SmallHeap {
 	public static void main(String[] args) {
 		SmallHeap heap = new SmallHeap(15);
 		for (int i = 9; i > 0; i--) {
-			heap.insert(new Node(i + ""));
+			heap.insert(new Node(i + "",new File("")));
 		}
 		heap.print();
 
