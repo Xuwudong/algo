@@ -1,4 +1,4 @@
-package sort;
+package heaps;
 
 import java.io.File;
 
@@ -6,7 +6,7 @@ public class Node {
 	private String word;
 	private File file;
 
-	public Node(String word,File file) {
+	public Node(String word, File file) {
 		this.word = word;
 		this.setFile(file);
 	}
@@ -25,5 +25,10 @@ public class Node {
 
 	public void setFile(File file) {
 		this.file = file;
+	}
+
+	@Override
+	public String toString() {
+		return this.word;
 	}
 }

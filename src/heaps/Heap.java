@@ -1,26 +1,36 @@
-package sort;
+package heaps;
+
+import java.io.File;
+import java.util.Comparator;
 
 /***
  * 数据结构 ：堆;数组第一个元素不存储数据 堆中的元素个数：count; count = arr.length-1
- *
+ * 
  * @author admin
  *
  */
-public class BigHeap {
-	private String[] arr;
+public class Heap<T> {
+	private T[] arr;
 	private int count;
+	private Comparator<T> comparator;
 
-	public BigHeap(int size) {
-		this.arr = new String[size];
+	public int getCount() {
+		return count;
+	}
+
+	@SuppressWarnings("unchecked")
+	public Heap(int size, Comparator<T> comparator) {
+		this.arr = (T[]) new Object[size];
 		this.count = 0;
+		this.comparator = comparator;
 	}
 
 	/**
 	 * 堆排
-	 *
+	 * 
 	 * @param arr
 	 */
-	public static void heapSort(String[] arr) {
+	public void heapSort(T[] arr) {
 		buildHeap(arr, arr.length - 1);
 		for (int i = arr.length - 1; i > 1; i--) {
 			swap(arr, 1, i);
@@ -30,11 +40,11 @@ public class BigHeap {
 
 	/**
 	 * 建堆
-	 *
+	 * 
 	 * @param arr
 	 * @param n
 	 */
-	public static void buildHeap(String[] arr, int n) {
+	public void buildHeap(T[] arr, int n) {
 		for (int i = n / 2; i > 0; i--) {
 			heapify(arr, n, i);
 		}
@@ -42,18 +52,18 @@ public class BigHeap {
 
 	/**
 	 * 堆化（从上往下）
-	 *
+	 * 
 	 * @param arr
 	 * @param n
 	 * @param i
 	 */
-	public static void heapify(String[] arr, int n, int i) {
+	public void heapify(T[] arr, int n, int i) {
 		while (true) {
 			int maxPos = i;
-			if (i * 2 <= n && arr[i].compareTo(arr[i * 2]) < 0) {
+			if (i * 2 <= n && this.comparator.compare(arr[i], arr[i * 2]) < 0) {
 				maxPos = i * 2;
 			}
-			if (i * 2 + 1 <= n && arr[maxPos].compareTo(arr[i * 2 + 1]) < 0) {
+			if (i * 2 + 1 <= n && this.comparator.compare(arr[maxPos], arr[i * 2 + 1]) < 0) {
 				maxPos = i * 2 + 1;
 			}
 			if (maxPos == i) {
@@ -66,10 +76,10 @@ public class BigHeap {
 
 	/**
 	 * 插入
-	 *
+	 * 
 	 * @param value
 	 */
-	public void insert(String value) {
+	public void insert(T value) {
 		if (count == 0) {
 			arr[++count] = value;
 			return;
@@ -79,7 +89,7 @@ public class BigHeap {
 		}
 		int n = ++count;
 		arr[n] = value;
-		while (n / 2 > 0 && arr[n / 2].compareTo(arr[n]) < 0) {
+		while (n / 2 > 0 && this.comparator.compare(arr[n / 2], arr[n]) < 0) {
 			swap(arr, n / 2, n);
 			n = n / 2;
 		}
@@ -87,31 +97,47 @@ public class BigHeap {
 
 	/**
 	 * 删除堆顶元素
+	 * 
+	 * @return
 	 */
-	public void deleteFirst() {
+	public T deleteFirst() {
 		if (count == 0) {
 			throw new Error("array is empty");
 		}
+		T ret = arr[1];
 		arr[1] = arr[count];
-		arr[count] = "";
+		arr[count] = null;
 		count--;
 		heapify(arr, count, 1);
+		return ret;
 	}
 
-	public static void swap(String[] arr, int n, int m) {
-		String tmp = arr[n];
+	public void swap(T[] arr, int n, int m) {
+		T tmp = arr[n];
 		arr[n] = arr[m];
 		arr[m] = tmp;
 	}
 
 	public static void main(String[] args) {
-		BigHeap heap = new BigHeap(15);
-		for (int i = 1; i < 10; i++) {
-			heap.insert(i + "");
+		Heap<Node> heap = new Heap<>(15, new Comparator<Node>() {
+			@Override
+			public int compare(Node o1, Node o2) {
+				if (Long.parseLong(o1.getWord()) > Long.parseLong(o2.getWord())) {
+					return -1;
+				} else if (Long.parseLong(o1.getWord()) < Long.parseLong(o2.getWord())) {
+					return 1;
+				} else {
+					return 0;
+				}
+			}
+		});
+		for (int i = 0; i < 10; i++) {
+			Node node = new Node(i + "", new File(""));
+			heap.insert(node);
 		}
 		heap.print();
 
-		for (int i = 0; i < 9; i++) {
+		for (int i = 0; i < 10; i++) {
 			heap.deleteFirst();
 			heap.print();
 		}
@@ -124,7 +150,7 @@ public class BigHeap {
 	}
 
 	public void print() {
-		for (String i : arr) {
+		for (Object i : arr) {
 			System.out.print(i + "  ");
 		}
 		System.out.println(count);
