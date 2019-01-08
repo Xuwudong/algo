@@ -119,28 +119,28 @@ public class Heap<T> {
 	}
 
 	public static void main(String[] args) {
-		Heap<Node> heap = new Heap<>(15, new Comparator<Node>() {
-			@Override
-			public int compare(Node o1, Node o2) {
-				if (Long.parseLong(o1.getWord()) > Long.parseLong(o2.getWord())) {
-					return -1;
-				} else if (Long.parseLong(o1.getWord()) < Long.parseLong(o2.getWord())) {
-					return 1;
-				} else {
-					return 0;
-				}
-			}
-		});
-		for (int i = 0; i < 10; i++) {
-			Node node = new Node(i + "", new File(""));
-			heap.insert(node);
-		}
-		heap.print();
-
-		for (int i = 0; i < 10; i++) {
-			heap.deleteFirst();
-			heap.print();
-		}
+//		Heap<Node> heap = new Heap<>(15, new Comparator<Node>() {
+//			@Override
+//			public int compare(Node o1, Node o2) {
+//				if (Long.parseLong(o1.getWord()) > Long.parseLong(o2.getWord())) {
+//					return -1;
+//				} else if (Long.parseLong(o1.getWord()) < Long.parseLong(o2.getWord())) {
+//					return 1;
+//				} else {
+//					return 0;
+//				}
+//			}
+//		});
+//		for (int i = 0; i < 10; i++) {
+//			Node node = new Node(i + "", new File(""));
+//			heap.insert(node);
+//		}
+//		heap.print();
+//
+//		for (int i = 0; i < 10; i++) {
+//			heap.deleteFirst();
+//			heap.print();
+//		}
 //		int[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 //		heapSort(arr);
 //		for (int i : arr) {
