@@ -1,6 +1,5 @@
 package heaps;
 
-import java.io.File;
 import java.util.Comparator;
 
 /***
@@ -10,6 +9,10 @@ import java.util.Comparator;
  *
  */
 public class Heap<T> {
+	public T[] getArr() {
+		return arr;
+	}
+
 	private T[] arr;
 	private int count;
 	private Comparator<T> comparator;
