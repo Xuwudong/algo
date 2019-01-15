@@ -15,16 +15,16 @@ public class Timer implements Runnable {
 		}
 	});
 
-	private long nextTime;
-
 	public void run() {
-		int n = 1;
+		long preTime = 0;
+		long curTime;
 		while (heap.getCount() > 0) {
 			Task topTask = (Task) heap.deleteFirst();
 			if (topTask != null) {
-				nextTime = topTask.getPeriod();
+				curTime = topTask.getPeriod();
 				try {
-					Thread.sleep(nextTime);
+					Thread.sleep(curTime - preTime);
+					preTime = curTime;
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
