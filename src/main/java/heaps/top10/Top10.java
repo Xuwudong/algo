@@ -26,6 +26,9 @@ public class Top10 {
 
 	private static String path = "D:/top10/";
 
+	/**
+	 * 小顶堆
+	 */
 	private static Heap<Word> finalHeap = new Heap<Word>(11, new Comparator<Word>() {
 		public int compare(Word o1, Word o2) {
 			return o2.getCount() - o1.getCount();
@@ -149,9 +152,7 @@ public class Top10 {
 			for (Future<Heap<Word>> f : futures) {
 				f.get();
 			}
-
 			executorService.shutdown();
-
 			// 合并10个堆
 			merge10Heap2FinalHeap();
 		}
@@ -210,7 +211,6 @@ public class Top10 {
 			}
 		}
 	}
-
 
 	/**
 	 * 堆取元素
