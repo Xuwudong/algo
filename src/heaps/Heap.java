@@ -33,7 +33,7 @@ public class Heap<T> {
 	 * 
 	 * @param arr
 	 */
-	public void heapSort(T[] arr) {
+	public void heapSort() {
 		buildHeap(arr, arr.length - 1);
 		for (int i = arr.length - 1; i > 1; i--) {
 			swap(arr, 1, i);
