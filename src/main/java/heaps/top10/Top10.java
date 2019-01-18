@@ -20,16 +20,16 @@ import java.util.concurrent.Future;
 import heaps.Heap;
 
 public class Top10 {
-	private static int count = 1000;
-	private static Map<Integer, BufferedWriter> fileReaders = new HashMap<>();
-	private static Map<Integer, Heap<Word>> fileHeaps = new HashMap<>();
+	private int count = 1000;
+	private Map<Integer, BufferedWriter> fileReaders = new HashMap<>();
+	private Map<Integer, Heap<Word>> fileHeaps = new HashMap<>();
 
-	private static String path = "D:/top10/";
+	private String path = "D:/top10/";
 
 	/**
 	 * 小顶堆
 	 */
-	private static Heap<Word> finalHeap = new Heap<Word>(11, new Comparator<Word>() {
+	private Heap<Word> finalHeap = new Heap<Word>(11, new Comparator<Word>() {
 		public int compare(Word o1, Word o2) {
 			return o2.getCount() - o1.getCount();
 		};
@@ -41,7 +41,7 @@ public class Top10 {
 	 * @return
 	 * @throws IOException
 	 */
-	public static File init() throws IOException {
+	public File init() throws IOException {
 		File bigFile = initBigFile();
 		init10File();
 		return bigFile;
@@ -54,7 +54,7 @@ public class Top10 {
 	 * @return
 	 * @throws IOException
 	 */
-	public static File createFile(File file) throws IOException {
+	public File createFile(File file) throws IOException {
 		if (!file.exists()) {
 			file.createNewFile();
 		} else {
@@ -72,7 +72,7 @@ public class Top10 {
 	 * @return
 	 * @throws IOException
 	 */
-	public static File initBigFile() throws IOException {
+	public File initBigFile() throws IOException {
 		File file = new File(path);
 		if (!file.exists()) {
 			file.mkdirs();
@@ -90,7 +90,7 @@ public class Top10 {
 	 * @param file
 	 * @throws IOException
 	 */
-	public static void writeContent(File file) throws IOException {
+	public void writeContent(File file) throws IOException {
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
 			for (int i = 0; i < count; i++) {
 				for (int j = 0; j < i; j++) {
@@ -105,7 +105,7 @@ public class Top10 {
 	 * 
 	 * @throws IOException
 	 */
-	public static void init10File() throws IOException {
+	public void init10File() throws IOException {
 		for (int i = 0; i < 10; i++) {
 			File tmpFile = new File(path + "file" + i + ".txt");
 			tmpFile = createFile(tmpFile);
@@ -131,7 +131,7 @@ public class Top10 {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	public static void top10(File bigFile) throws IOException, InterruptedException, ExecutionException {
+	public void top10(File bigFile) throws IOException, InterruptedException, ExecutionException {
 		try (BufferedReader BigFileReader = new BufferedReader(new InputStreamReader(new FileInputStream(bigFile)))) {
 			String line = BigFileReader.readLine();
 			// 大文件hash到小文件中
@@ -161,7 +161,7 @@ public class Top10 {
 	/**
 	 * 合并10个堆 -> 1个堆
 	 */
-	public static void merge10Heap2FinalHeap() {
+	public void merge10Heap2FinalHeap() {
 		for (Entry<Integer, Heap<Word>> entry : fileHeaps.entrySet()) {
 			Heap<Word> heap = entry.getValue();
 			while (heap.getCount() > 0) {
@@ -181,7 +181,7 @@ public class Top10 {
 		}
 	}
 
-	public static void insertIntoHeap(int i) throws IOException {
+	public void insertIntoHeap(int i) throws IOException {
 		try (BufferedReader reader = new BufferedReader(
 				new InputStreamReader(new FileInputStream(new File(path + "file" + i + ".txt"))))) {
 			Map<String, Integer> countMap = new HashMap<>();
@@ -218,7 +218,7 @@ public class Top10 {
 	 * @author admin
 	 *
 	 */
-	static class BuildHeapTask implements Callable<Heap<Word>> {
+	class BuildHeapTask implements Callable<Heap<Word>> {
 
 		private int i;
 
@@ -261,14 +261,32 @@ public class Top10 {
 		}
 	}
 
-	public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
-		long start = System.currentTimeMillis();
-		File bigFile = init();
-		top10(bigFile);
-		long end = System.currentTimeMillis();
-		finalHeap.print();
-		finalHeap.heapSort();
-		finalHeap.print();
-		System.out.println("spend time:" + (end - start) + "ms");
+	public int getCount() {
+		return count;
 	}
+
+	public Map<Integer, BufferedWriter> getFileReaders() {
+		return fileReaders;
+	}
+
+	public Map<Integer, Heap<Word>> getFileHeaps() {
+		return fileHeaps;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public Heap<Word> getFinalHeap() {
+		return finalHeap;
+	}
+
+	/*
+	 * public static void main(String[] args) throws IOException,
+	 * InterruptedException, ExecutionException { long start =
+	 * System.currentTimeMillis(); File bigFile = init(); top10(bigFile); long end =
+	 * System.currentTimeMillis(); finalHeap.print(); finalHeap.heapSort();
+	 * finalHeap.print(); System.out.println("spend time:" + (end - start) + "ms");
+	 * }
+	 */
 }
