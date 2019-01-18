@@ -1,4 +1,4 @@
-package heaps;
+package heaps.mergefiles;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,6 +12,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+
+import heaps.Heap;
 
 /**
  * 合并文件
@@ -87,6 +89,7 @@ public class MergeFiles {
 			try (PrintWriter pw = new PrintWriter(new FileOutputStream(file))) {
 				for (int j = 0; j < fileLine; j++) {
 					pw.write(i + "\r\n");
+					pw.flush();
 					i = i + fileLine;
 				}
 			} catch (FileNotFoundException e) {

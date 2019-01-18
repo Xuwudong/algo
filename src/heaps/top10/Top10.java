@@ -120,6 +120,14 @@ public class Top10 {
 		}
 	}
 
+	/**
+	 * 求取top10
+	 * 
+	 * @param bigFile
+	 * @throws IOException
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 */
 	public static void top10(File bigFile) throws IOException, InterruptedException, ExecutionException {
 		try (BufferedReader BigFileReader = new BufferedReader(new InputStreamReader(new FileInputStream(bigFile)))) {
 			String line = BigFileReader.readLine();
@@ -128,55 +136,35 @@ public class Top10 {
 				int n = Integer.valueOf(line) % 10;
 				BufferedWriter br = fileReaders.get(n);
 				br.write(line + "\r\n");
+				br.flush();
 				line = BigFileReader.readLine();
 			}
-//			ExecutorService executorService = Executors.newFixedThreadPool(10);
+			ExecutorService executorService = Executors.newFixedThreadPool(10);
+			@SuppressWarnings("unchecked")
+			Future<Heap<Word>>[] futures = new Future[10];
 			for (int i = 0; i < 10; i++) {
-				try (BufferedReader reader = new BufferedReader(
-						new InputStreamReader(new FileInputStream(new File(path + "file" + i + ".txt"))))) {
-					Map<String, Integer> countMap = new HashMap<>();
-					String line1 = reader.readLine();
-					Heap<Word> heap = null;
-					while (line1 != null && line1 != "'\r\n") {
-						int count = 1;
-						if (countMap.containsKey(line1)) {
-							count = countMap.get(line1) + 1;
-							countMap.put(line1, count);
-						} else {
-							countMap.put(line1, 1);
-						}
-						heap = fileHeaps.get(i);
-						// 堆满
-						if (heap.getCount() >= 100) {
-							Object[] arr = heap.getArr();
-							Word minWord = (Word) arr[1];
-							if (count > minWord.getCount()) {
-								heap.deleteFirst();
-								heap.insert(new Word(line1, count));
-							}
-						} else {
-							heap.insert(new Word(line1, count));
-						}
-						line1 = reader.readLine();
-					}
-					heap.print();
-				}
-//				Future<Heap<Word>> future = executorService.submit(new BuildHeapTask(i));
-//				Heap<Word> heap = future.get();
+				Future<Heap<Word>> future = executorService.submit(new BuildHeapTask(i));
+				futures[i] = future;
 			}
+			for (Future<Heap<Word>> f : futures) {
+				f.get();
+			}
+
+			executorService.shutdown();
 
 			// 合并10个堆
 			merge10Heap2FinalHeap();
 		}
 	}
 
+	/**
+	 * 合并10个堆 -> 1个堆
+	 */
 	public static void merge10Heap2FinalHeap() {
 		for (Entry<Integer, Heap<Word>> entry : fileHeaps.entrySet()) {
 			Heap<Word> heap = entry.getValue();
-//			System.out.println(heap);
 			while (heap.getCount() > 0) {
 				Word word = heap.deleteFirst();
-				System.out.println(word);
 				if (finalHeap.getCount() >= 10) {
 					Object[] arr = finalHeap.getArr();
 					Word firstWord = (Word) arr[1];
@@ -191,6 +179,38 @@ public class Top10 {
 			}
 		}
 	}
+
+	public static void insertIntoHeap(int i) throws IOException {
+		try (BufferedReader reader = new BufferedReader(
+				new InputStreamReader(new FileInputStream(new File(path + "file" + i + ".txt"))))) {
+			Map<String, Integer> countMap = new HashMap<>();
+			String line1 = reader.readLine();
+			Heap<Word> heap = null;
+			while (line1 != null && line1 != "'\r\n") {
+				int count = 1;
+				if (countMap.containsKey(line1)) {
+					count = countMap.get(line1) + 1;
+					countMap.put(line1, count);
+				} else {
+					countMap.put(line1, 1);
+				}
+				heap = fileHeaps.get(i);
+				// 堆满
+				if (heap.getCount() >= 100) {
+					Object[] arr = heap.getArr();
+					Word minWord = (Word) arr[1];
+					if (count > minWord.getCount()) {
+						heap.deleteFirst();
+						heap.insert(new Word(line1, count));
+					}
+				} else {
+					heap.insert(new Word(line1, count));
+				}
+				line1 = reader.readLine();
+			}
+		}
+	}
+
 
 	/**
 	 * 堆取元素
@@ -212,30 +232,29 @@ public class Top10 {
 			try (BufferedReader reader = new BufferedReader(
 					new InputStreamReader(new FileInputStream(new File(path + "file" + i + ".txt"))))) {
 				Map<String, Integer> countMap = new HashMap<>();
-				String line = reader.readLine();
-
-				while (line != null && line != "'\r\n") {
+				String line1 = reader.readLine();
+				heap = null;
+				while (line1 != null && line1 != "'\r\n") {
 					int count = 1;
-					if (countMap.containsKey(line)) {
-						count = countMap.get(line) + 1;
-						countMap.put(line, count);
+					if (countMap.containsKey(line1)) {
+						count = countMap.get(line1) + 1;
+						countMap.put(line1, count);
 					} else {
-						countMap.put(line, 1);
+						countMap.put(line1, 1);
 					}
 					heap = fileHeaps.get(i);
 					// 堆满
 					if (heap.getCount() >= 100) {
-						if (heap.getArr()[1] instanceof Word) {
-							Word minWord = (Word) heap.getArr()[1];
-							if (count > minWord.getCount()) {
-								heap.deleteFirst();
-								heap.insert(new Word(line, count));
-							}
+						Object[] arr = heap.getArr();
+						Word minWord = (Word) arr[1];
+						if (count > minWord.getCount()) {
+							heap.deleteFirst();
+							heap.insert(new Word(line1, count));
 						}
 					} else {
-						heap.insert(new Word(line, count));
+						heap.insert(new Word(line1, count));
 					}
-					line = reader.readLine();
+					line1 = reader.readLine();
 				}
 			}
 			return heap;
@@ -250,6 +269,6 @@ public class Top10 {
 		finalHeap.print();
 		finalHeap.heapSort();
 		finalHeap.print();
-		System.out.println("spend time:" + (end - start) / 1000 + "s");
+		System.out.println("spend time:" + (end - start) + "ms");
 	}
 }

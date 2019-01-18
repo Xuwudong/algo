@@ -1,4 +1,4 @@
-package heaps;
+package heaps.mergefiles;
 
 import java.io.File;
 
