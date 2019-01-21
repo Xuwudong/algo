@@ -9,13 +9,10 @@ package stack;
 public class MyQueue {
 	private java.util.Stack<Integer> stack2;
 	private java.util.Stack<Integer> stack1;
-	private int start;
-
 	/** Initialize your data structure here. */
 	public MyQueue() {
 		this.stack1 = new java.util.Stack<>();
 		this.stack2 = new java.util.Stack<>();
-		this.start = 0;
 	}
 
 	/** Push element x to the back of queue. */
@@ -44,7 +41,7 @@ public class MyQueue {
 
 	/** Returns whether the queue is empty. */
 	public boolean empty() {
-		return stack2.size() > 0;
+		return stack2.size() == 0;
 	}
 }
 
