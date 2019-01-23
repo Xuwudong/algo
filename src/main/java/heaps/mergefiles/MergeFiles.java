@@ -49,7 +49,7 @@ public class MergeFiles {
 	/**
 	 * 每个文件的行数
 	 */
-	private static int fileLine = 10000;
+	private static int fileLine = 1000;
 
 	/**
 	 * 创建小文件(如果存在，将其删除）并写入内容
