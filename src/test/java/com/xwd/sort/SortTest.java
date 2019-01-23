@@ -6,8 +6,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.xwd.sort.Sort;
-
 public class SortTest {
 	private static Sort sort;
 	private int[] arr;

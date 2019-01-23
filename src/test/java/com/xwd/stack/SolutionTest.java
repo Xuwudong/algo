@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.xwd.stack.Solution;
-
 public class SolutionTest {
 	private Solution sol = new Solution();
 

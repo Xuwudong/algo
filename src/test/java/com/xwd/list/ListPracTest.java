@@ -4,9 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.xwd.list.ListNode;
-import com.xwd.list.ListPrac;
-
 public class ListPracTest {
 	@Test
 	public void testCreate() {

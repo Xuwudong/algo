@@ -5,8 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.xwd.binarysearch.Solution;
-
 public class SolutionTest {
 	private int[] arr = { 1, 2, 3, 6, 7, 7, 7, 7, 8, 9, 10 };
 	/** 循环数组 **/

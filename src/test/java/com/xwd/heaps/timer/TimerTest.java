@@ -2,8 +2,6 @@ package com.xwd.heaps.timer;
 
 import org.junit.Test;
 
-import com.xwd.heaps.timer.Task;
-import com.xwd.heaps.timer.Timer;
 
 public class TimerTest {
 

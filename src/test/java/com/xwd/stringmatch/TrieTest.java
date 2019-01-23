@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.xwd.stringmatch.Trie;
-
 public class TrieTest {
 	private Trie trie = new Trie();
 

@@ -7,8 +7,6 @@ import java.util.Comparator;
 
 import org.junit.Test;
 
-import com.xwd.heaps.Heap;
-
 /***
  * 数据结构 ：堆;数组第一个元素不存储数据 堆中的元素个数：count; count = arr.length-1
  * 

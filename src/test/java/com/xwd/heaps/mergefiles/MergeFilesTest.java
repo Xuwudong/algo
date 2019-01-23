@@ -5,7 +5,6 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import com.xwd.heaps.mergefiles.MergeFiles;
 
 /**
  * 合并文件

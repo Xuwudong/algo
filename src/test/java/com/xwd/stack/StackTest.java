@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.xwd.stack.Stack;
-
 public class StackTest {
 	@Test
 	public void testIsValid() {

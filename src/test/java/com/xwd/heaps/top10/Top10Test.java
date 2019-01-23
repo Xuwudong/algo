@@ -6,13 +6,12 @@ import java.util.concurrent.ExecutionException;
 
 import org.junit.Test;
 
-import com.xwd.heaps.top10.Top10;
 
 public class Top10Test {
 	@Test
 	public void top10Test() throws IOException, InterruptedException, ExecutionException {
 		long start = System.currentTimeMillis();
-		heaps.top10.Top10 top10 = new heaps.top10.Top10();
+		Top10 top10 = new Top10();
 		File bigFile = top10.init();
 		top10.top10(bigFile);
 		long end = System.currentTimeMillis();

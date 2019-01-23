@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.xwd.stringmatch.KMP;
-
 public class KMPTest {
 	@Test
 	public void testKMP() {

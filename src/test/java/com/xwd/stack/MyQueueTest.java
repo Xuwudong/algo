@@ -3,8 +3,6 @@ package com.xwd.stack;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-import com.xwd.stack.MyQueue;
-
 public class MyQueueTest {
 	private MyQueue mq = new MyQueue();
 
