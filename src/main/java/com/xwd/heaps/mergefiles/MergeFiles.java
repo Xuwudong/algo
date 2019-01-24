@@ -21,13 +21,9 @@ import com.xwd.heaps.Heap;
  * @author APP
  */
 public class MergeFiles {
-	/**
-	 * 有序文件列表
-	 **/
+	/** 有序文件列表**/
 	public static ArrayList<File> fileList = new ArrayList<>();
-	/**
-	 * 小顶堆
-	 **/
+	/** 小顶堆 **/
 	private static Heap<Node> heap = new Heap<>(101, new Comparator<Node>() {
 		@Override
 		public int compare(Node o1, Node o2) {
@@ -40,16 +36,11 @@ public class MergeFiles {
 			}
 		}
 	});
-	/**
-	 * 
-	 * file -> fileReader
-	 **/
+	/**  file -> fileReader 保存每个文件的输入流**/
 	private static HashMap<File, BufferedReader> readerMap = new HashMap<>();
 
-	/**
-	 * 每个文件的行数
-	 */
-	private static int fileLine = 1000;
+	/** 每个文件的行数 **/
+	private static int fileLine = 100000;
 
 	/**
 	 * 创建小文件(如果存在，将其删除）并写入内容
@@ -101,10 +92,9 @@ public class MergeFiles {
 	/**
 	 * 初始化fileList和fileReaded
 	 *
-	 * @param dirName
+	 * @param file
 	 * @throws FileNotFoundException
 	 */
-
 	public static void init(File file) throws FileNotFoundException {
 		if (file.isDirectory()) {
 			File[] files = file.listFiles();
