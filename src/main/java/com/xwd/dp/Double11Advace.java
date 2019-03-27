@@ -1,17 +1,17 @@
-package com.xwd.dp;
+ï»¿package com.xwd.dp;
 
 public class Double11Advace {
-	// items ÉÌÆ·¼Û¸ñ£¬n ÉÌÆ·¸öÊı, w ±íÊ¾Âú¼õÌõ¼ş£¬±ÈÈç 200
+	// items å•†å“ä»·æ ¼ï¼Œn å•†å“ä¸ªæ•°, w è¡¨ç¤ºæ»¡å‡æ¡ä»¶ï¼Œæ¯”å¦‚ 200
 	public static void double11advance(int[] items, int n, int w) {
-		boolean[][] states = new boolean[n][3 * w + 1];// ³¬¹ı 3 ±¶¾ÍÃ»ÓĞŞ¶ÑòÃ«µÄ¼ÛÖµÁË
-		states[0][0] = true; // µÚÒ»ĞĞµÄÊı¾İÒªÌØÊâ´¦Àí
+		boolean[][] states = new boolean[n][3 * w + 1];// è¶…è¿‡ 3 å€å°±æ²¡æœ‰è–…ç¾Šæ¯›çš„ä»·å€¼äº†
+		states[0][0] = true; // ç¬¬ä¸€è¡Œçš„æ•°æ®è¦ç‰¹æ®Šå¤„ç†
 		states[0][items[0]] = true;
-		for (int i = 1; i < n; ++i) { // ¶¯Ì¬¹æ»®
-			for (int j = 0; j <= 3 * w; ++j) {// ²»¹ºÂòµÚ i ¸öÉÌÆ·
+		for (int i = 1; i < n; ++i) { // åŠ¨æ€è§„åˆ’
+			for (int j = 0; j <= 3 * w; ++j) {// ä¸è´­ä¹°ç¬¬ i ä¸ªå•†å“
 				if (states[i - 1][j] == true)
 					states[i][j] = states[i - 1][j];
 			}
-			for (int j = 0; j <= 3 * w - items[i]; ++j) {// ¹ºÂòµÚ i ¸öÉÌÆ·
+			for (int j = 0; j <= 3 * w - items[i]; ++j) {// è´­ä¹°ç¬¬ i ä¸ªå•†å“
 				if (states[i - 1][j] == true)
 					states[i][j + items[i]] = true;
 			}
@@ -20,15 +20,15 @@ public class Double11Advace {
 		int j;
 		for (j = w; j < 3 * w + 1; ++j) {
 			if (states[n - 1][j] == true)
-				break; // Êä³ö½á¹û´óÓÚµÈÓÚ w µÄ×îĞ¡Öµ
+				break; // è¾“å‡ºç»“æœå¤§äºç­‰äº w çš„æœ€å°å€¼
 		}
 		if (j == 3 * w + 1)
-			return; // Ã»ÓĞ¿ÉĞĞ½â
-		for (int i = n - 1; i >= 1; --i) { // i ±íÊ¾¶şÎ¬Êı×éÖĞµÄĞĞ£¬j ±íÊ¾ÁĞ
+			return; // æ²¡æœ‰å¯è¡Œè§£
+		for (int i = n - 1; i >= 1; --i) { // i è¡¨ç¤ºäºŒç»´æ•°ç»„ä¸­çš„è¡Œï¼Œj è¡¨ç¤ºåˆ—
 			if (j - items[i] >= 0 && states[i - 1][j - items[i]] == true) {
-				System.out.print(items[i] + " "); // ¹ºÂòÕâ¸öÉÌÆ·
+				System.out.print(items[i] + " "); // è´­ä¹°è¿™ä¸ªå•†å“
 				j = j - items[i];
-			} // else Ã»ÓĞ¹ºÂòÕâ¸öÉÌÆ·£¬j ²»±ä¡£
+			} // else æ²¡æœ‰è´­ä¹°è¿™ä¸ªå•†å“ï¼Œj ä¸å˜ã€‚
 		}
 		if (j != 0)
 			System.out.print(items[0]);
