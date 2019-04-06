@@ -1,4 +1,4 @@
-﻿package com.xwd.dp;
+package com.xwd.dp;
 
 public class Double11Advace {
 	// items 商品价格，n 商品个数, w 表示满减条件，比如 200
