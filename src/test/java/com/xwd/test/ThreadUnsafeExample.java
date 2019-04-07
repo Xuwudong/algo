@@ -1,10 +1,5 @@
 package com.xwd.test;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class ThreadUnsafeExample {
 
 	private int cnt = 0;
@@ -20,19 +15,32 @@ public class ThreadUnsafeExample {
 		return cnt;
 	}
 
-	public static void main(String[] args) throws InterruptedException {
-		final int threadSize = 1000;
-		ThreadUnsafeExample example = new ThreadUnsafeExample();
-		final CountDownLatch countDownLatch = new CountDownLatch(threadSize);
-		ExecutorService executorService = Executors.newCachedThreadPool();
-		for (int i = 0; i < threadSize; i++) {
-			executorService.execute(() -> {
-				example.add();
-				countDownLatch.countDown();
-			});
+	public static void test(int i) {
+		System.out.println(i);
+		if (i == 10) {
+			return;
 		}
-		countDownLatch.await();
-		executorService.shutdown();
-		System.out.println(example.get());
+		System.out.println((int)'4');
+//		for (int j = 0; j < 2; j++) {
+//			test(++i);
+//		}
+	}
+
+	public static void main(String[] args) throws InterruptedException {
+		int i = 3;
+		ThreadUnsafeExample.test(i);
+//		final int threadSize = 1000;
+//		ThreadUnsafeExample example = new ThreadUnsafeExample();
+//		final CountDownLatch countDownLatch = new CountDownLatch(threadSize);
+//		ExecutorService executorService = Executors.newCachedThreadPool();
+//		for (int i = 0; i < threadSize; i++) {
+//			executorService.execute(() -> {
+//				example.add();
+//				countDownLatch.countDown();
+//			});
+//		}
+//		countDownLatch.await();
+//		executorService.shutdown();
+//		System.out.println(example.get());
 	}
 }
