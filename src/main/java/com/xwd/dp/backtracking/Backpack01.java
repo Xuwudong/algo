@@ -1,15 +1,15 @@
 package com.xwd.dp.backtracking;
 
 public class Backpack01 {
-	private int maxW = Integer.MIN_VALUE;// ´æ´¢±³°üÖĞÎïÆ·×ÜÖØÁ¿µÄ×î´óÖµ
+	private int maxW = Integer.MIN_VALUE;// ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 
 	/**
-	 * »ØËİ½â¾ö01±³°üÎÊÌâ;
+	 * ï¿½ï¿½ï¿½İ½ï¿½ï¿½01ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½;
 	 * 
-	 * @param i   ±íÊ¾¿¼²ìµ½ÄÄ¸öÎïÆ·ÁË
-	 * @param cw  ±íÊ¾µ±Ç°ÒÑ×°½øÈ¥µÄÎïÆ·×ÜÖØÁ¿µÄºÍ
-	 * @param arr ´æ´¢Ã¿¸öÎïÆ·µÄÖØÁ¿
-	 * @param w   ±³°üÄÜ³ĞÊÜµÄÖØÁ¿
+	 * @param i   ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ìµ½ï¿½Ä¸ï¿½ï¿½ï¿½Æ·ï¿½ï¿½
+	 * @param cw  ï¿½ï¿½Ê¾ï¿½ï¿½Ç°ï¿½ï¿½×°ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äºï¿½
+	 * @param arr ï¿½æ´¢Ã¿ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param w   ï¿½ï¿½ï¿½ï¿½ï¿½Ü³ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public void f(int i, int cw, int[] arr, int w) {
 		if (cw >= w || i == arr.length) {
@@ -18,17 +18,17 @@ public class Backpack01 {
 			}
 			return;
 		}
-		// i ÎïÆ·²»·Å½ø±³°ü
+		// i ï¿½ï¿½Æ·ï¿½ï¿½ï¿½Å½ï¿½ï¿½ï¿½ï¿½ï¿½
 		f(i + 1, cw, arr, w);
 		if (cw + arr[i] <= w) {
-			// i ÎïÆ··Å½ø±³°ü
+			// i ï¿½ï¿½Æ·ï¿½Å½ï¿½ï¿½ï¿½ï¿½ï¿½
 			f(i + 1, cw + arr[i], arr, w);
 		}
 	}
 
 	private int[] weights = { 2, 3, 9, 4 };
 	private int w = 10;
-	private boolean[][] mem = new boolean[4][10]; // ±¸ÍüÂ¼
+	private boolean[][] mem = new boolean[4][10]; // ï¿½ï¿½ï¿½ï¿½Â¼
 
 	public void f2(int i, int cw) {
 		if (cw == w || i == weights.length) {
@@ -47,22 +47,22 @@ public class Backpack01 {
 		}
 	}
 
-	// weight: ÎïÆ·ÖØÁ¿£¬n: ÎïÆ·¸öÊı£¬w: ±³°ü¿É³ĞÔØÖØÁ¿
+	// weight: ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½n: ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½w: ï¿½ï¿½ï¿½ï¿½ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public int knapsack(int[] weight, int n, int w) {
-		boolean[][] states = new boolean[n][w + 1]; // Ä¬ÈÏÖµ false
-		states[0][0] = true; // µÚÒ»ĞĞµÄÊı¾İÒªÌØÊâ´¦Àí£¬¿ÉÒÔÀûÓÃÉÚ±øÓÅ»¯
+		boolean[][] states = new boolean[n][w + 1]; // Ä¬ï¿½ï¿½Öµ false
+		states[0][0] = true; // ï¿½ï¿½Ò»ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½â´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½ï¿½Å»ï¿½
 		states[0][weight[0]] = true;
-		for (int i = 1; i < n; ++i) { // ¶¯Ì¬¹æ»®×´Ì¬×ªÒÆ
-			for (int j = 0; j <= w; ++j) {// ²»°ÑµÚ i ¸öÎïÆ··ÅÈë±³°ü
+		for (int i = 1; i < n; ++i) { // ï¿½ï¿½Ì¬ï¿½æ»®×´Ì¬×ªï¿½ï¿½
+			for (int j = 0; j <= w; ++j) {// ï¿½ï¿½ï¿½Ñµï¿½ i ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ë±³ï¿½ï¿½
 				if (states[i - 1][j] == true)
 					states[i][j] = states[i - 1][j];
 			}
-			for (int j = 0; j <= w - weight[i]; ++j) {// °ÑµÚ i ¸öÎïÆ··ÅÈë±³°ü
+			for (int j = 0; j <= w - weight[i]; ++j) {// ï¿½Ñµï¿½ i ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ë±³ï¿½ï¿½
 				if (states[i - 1][j] == true)
 					states[i][j + weight[i]] = true;
 			}
 		}
-		for (int i = w; i >= 0; --i) { // Êä³ö½á¹û
+		for (int i = w; i >= 0; --i) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (states[n - 1][i] == true)
 				return i;
 		}
@@ -70,16 +70,16 @@ public class Backpack01 {
 	}
 
 	public int knapsack2(int[] items, int n, int w) {
-		boolean[] states = new boolean[w + 1]; // Ä¬ÈÏÖµ false
-		states[0] = true; // µÚÒ»ĞĞµÄÊı¾İÒªÌØÊâ´¦Àí£¬¿ÉÒÔÀûÓÃÉÚ±øÓÅ»¯
+		boolean[] states = new boolean[w + 1]; // Ä¬ï¿½ï¿½Öµ false
+		states[0] = true; // ï¿½ï¿½Ò»ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½â´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½ï¿½Å»ï¿½
 		states[items[0]] = true;
-		for (int i = 1; i < n; ++i) { // ¶¯Ì¬¹æ»®
-			for (int j = w - items[i]; j >= 0; j--) {// °ÑµÚ i ¸öÎïÆ··ÅÈë±³°ü
+		for (int i = 1; i < n; ++i) { // ï¿½ï¿½Ì¬ï¿½æ»®
+			for (int j = w - items[i]; j >= 0; j--) {// ï¿½Ñµï¿½ i ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ë±³ï¿½ï¿½
 				if (states[j] == true)
 					states[j + items[i]] = true;
 			}
 		}
-		for (int i = w; i >= 0; --i) { // Êä³ö½á¹û
+		for (int i = w; i >= 0; --i) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (states[i] == true)
 				return i;
 		}
