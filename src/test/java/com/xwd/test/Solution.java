@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import com.xwd.list.ListNode;
+
 public class Solution {
 	public List<List<Integer>> fourSum(int[] nums, int target) {
 		Arrays.sort(nums);
@@ -148,6 +150,39 @@ public class Solution {
 			}
 		}
 		return res;
+	}
+
+	public ListNode mergeKLists(ListNode[] lists) {
+		if (lists.length == 0)
+			return null;
+		if (lists.length == 1)
+			return lists[0];
+		int mid = lists.length / 2;
+
+		ListNode[] left = Arrays.copyOfRange(lists, 0, mid);
+		ListNode[] right = Arrays.copyOfRange(lists, mid, lists.length);
+		ListNode l1 = mergeKLists(left);
+		ListNode l2 = mergeKLists(right);
+		return mergeTwoLists(l1, l2);
+	}
+
+	public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+		if (l1 == null)
+			return l2;
+		if (l2 == null)
+			return l1;
+
+		ListNode head = null;
+
+		if (l1.val < l2.val) {
+			head = l1;
+			head.next = mergeTwoLists(l1.next, l2);
+		} else {
+			head = l2;
+			head.next = mergeTwoLists(l1, l2.next);
+		}
+
+		return head;
 	}
 
 	public static void main(String[] args) {
