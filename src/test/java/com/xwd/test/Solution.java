@@ -241,6 +241,7 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution s = new Solution();
+        // 测试合并
 //		int[] nums = { 1, 0, -1, 0, -2, 2 };
 //		System.out.println(s.fourSum(nums, 0));
 //		System.out.println(s.intToRoman(3));
