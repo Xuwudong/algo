@@ -42,6 +42,7 @@ public class LongestPalindrome {
                 if (arr[i] != arr[j]) {
                     dp[i][j] = false;
                 } else {
+                    // aba 或者 aa 肯定是回文
                     if (j - i < 3) {
                         dp[i][j] = true;
                     } else {
