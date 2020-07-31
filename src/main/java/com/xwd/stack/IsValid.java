@@ -44,7 +44,7 @@ public class IsValid {
     }
 
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack(s.length());
+        Stack<Character> stack = new Stack<>(s.length());
         char[] arr = s.toCharArray();
         for (int i = 0; i < arr.length; i++) {
             if (map.containsKey(arr[i])) {
