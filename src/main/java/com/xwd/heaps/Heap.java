@@ -1,5 +1,8 @@
 package com.xwd.heaps;
 
+import com.xwd.heaps.mergefiles.Node;
+
+import java.io.File;
 import java.util.Comparator;
 
 /***
@@ -122,23 +125,23 @@ public class Heap<T> {
 	}
 
 	public static void main(String[] args) {
-//		Heap<Node> heap = new Heap<>(15, new Comparator<Node>() {
-//			@Override
-//			public int compare(Node o1, Node o2) {
-//				if (Long.parseLong(o1.getWord()) > Long.parseLong(o2.getWord())) {
-//					return -1;
-//				} else if (Long.parseLong(o1.getWord()) < Long.parseLong(o2.getWord())) {
-//					return 1;
-//				} else {
-//					return 0;
-//				}
-//			}
-//		});
-//		for (int i = 0; i < 10; i++) {
-//			Node node = new Node(i + "", new File(""));
-//			heap.insert(node);
-//		}
-//		heap.print();
+		Heap<Node> heap = new Heap<>(15, new Comparator<Node>() {
+			@Override
+			public int compare(Node o1, Node o2) {
+				if (Long.parseLong(o1.getWord()) > Long.parseLong(o2.getWord())) {
+					return 1;
+				} else if (Long.parseLong(o1.getWord()) < Long.parseLong(o2.getWord())) {
+					return -1;
+				} else {
+					return 0;
+				}
+			}
+		});
+		for (int i = 0; i < 10; i++) {
+			Node node = new Node(i + "", new File(""));
+			heap.insert(node);
+		}
+		heap.print();
 //
 //		for (int i = 0; i < 10; i++) {
 //			heap.deleteFirst();

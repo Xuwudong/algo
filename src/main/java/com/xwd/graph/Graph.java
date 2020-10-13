@@ -82,7 +82,6 @@ public class Graph {
 		}
 		visited[s] = true;
 		if (s == t) {
-			found = true;
 			return;
 		}
 		for (int i : adj[s]) {

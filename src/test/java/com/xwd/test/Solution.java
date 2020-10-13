@@ -221,19 +221,19 @@ public class Solution {
     public List<List<Integer>> combinationSum2(int[] nums, int target) {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
-        backtrace(nums,target,res,new ArrayList<Integer>(),0);
+        backtrace(nums, target, res, new ArrayList<>(), 0);
         return res;
     }
 
-    private void backtrace(int[] nums,int remain,List<List<Integer>> res,List<Integer> list, int index){
+    private void backtrace(int[] nums, int remain, List<List<Integer>> res, List<Integer> list, int index) {
         if (remain < 0) {
             return;
-        } else if(remain == 0) {
+        } else if (remain == 0) {
             res.add(new ArrayList<>(list));
         } else {
-            for(int i = index;i < nums.length;i++){
+            for (int i = index; i < nums.length; i++) {
                 list.add(nums[i]);
-                backtrace(nums,remain - nums[i],res,list,index + 1);
+                backtrace(nums, remain - nums[i], res, list, index + 1);
                 list.remove(list.size() - 1);
             }
         }
@@ -249,8 +249,20 @@ public class Solution {
 //		System.out.println(s.intToRoman(10));
 //		System.out.println(s.romanToInt("III"));
 //		System.out.println("I".equals("I"));
-        int[] arr = {10,1,2,7,6,1,5};
-        List<List<Integer>> res = s.combinationSum2(arr, 8);
-        System.out.println(res);
+//        int[] arr = {10,1,2,7,6,1,5};
+//        List<List<Integer>> res = s.combinationSum2(arr, 8);
+//        System.out.println(res);
+//        List<Integer> list = new ArrayList<>();
+//        System.out.println(list == null);
+//        list.get(0);
+        try {
+            s.testException();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void testException() throws RuntimeException {
+        throw new RuntimeException("exception happened");
     }
 }

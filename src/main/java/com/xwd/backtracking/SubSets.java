@@ -1,5 +1,7 @@
 package com.xwd.backtracking;
 
+import com.xwd.util.ListUtil;
+
 import java.util.*;
 
 /**
@@ -25,7 +27,6 @@ import java.util.*;
  */
 public class SubSets {
     public List<List<Integer>> subsets(int[] nums) {
-        Arrays.sort(nums);
         List<List<Integer>> res = new ArrayList<>();
         Deque<Integer> deque = new ArrayDeque<>();
         dfs(res, deque, nums, 0);
@@ -33,7 +34,7 @@ public class SubSets {
     }
 
     private void dfs(List<List<Integer>> res, Deque<Integer> deque, int[] nums, int index) {
-        res.add(new ArrayList<Integer>(deque));
+        res.add(new ArrayList<>(deque));
         for (int i = index; i < nums.length; i++) {
             deque.addLast(nums[i]);
             dfs(res, deque, nums, i + 1);
@@ -43,6 +44,7 @@ public class SubSets {
 
     public static void main(String[] args) {
         SubSets subSets = new SubSets();
-        subSets.subsets(new int[]{1, 2, 3});
+        List<List<Integer>> list = subSets.subsets(new int[]{1, 2, 3});
+        ListUtil.print(list);
     }
 }
