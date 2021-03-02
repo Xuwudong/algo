@@ -30,7 +30,9 @@ public class BuildTree {
         }
         TreeNode node = new TreeNode(preorder[leftPre]);
         int rootIn = leftIn;
-        while (rootIn <= rightIn && inorder[rootIn] != preorder[leftPre]) rootIn++;
+        while (rootIn <= rightIn && inorder[rootIn] != preorder[leftPre]){
+            rootIn++;
+        }
         int left = rootIn - leftIn;
         node.left = buildTree(preorder, inorder, leftPre + 1, leftPre + left, leftIn, rootIn - 1);
         node.right = buildTree(preorder, inorder, leftPre + left + 1, rightPre, rootIn + 1, rightIn);
