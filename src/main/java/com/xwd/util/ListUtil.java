@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @program: algo
  * @description:
- * @author: xuwudong@bigo.sg
+ * @author: xuwudong
  * @create: 2021-03-02 11:36
  **/
 public class ListUtil {

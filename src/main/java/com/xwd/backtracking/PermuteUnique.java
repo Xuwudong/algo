@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * @program: algo
  * @description:
- * @author: xuwudong@bigo.sg
+ * @author: xuwudong
  * @create: 2021-03-02 11:35
  **/
 public class PermuteUnique {
