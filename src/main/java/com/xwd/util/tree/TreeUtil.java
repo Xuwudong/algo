@@ -1,9 +1,6 @@
 package com.xwd.util.tree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * @program: algo
@@ -13,23 +10,84 @@ import java.util.Queue;
  **/
 public class TreeUtil {
 
-    public static TreeNode buildTree(int[] nums) {
-        if (nums.length == 0) {
+    public static TreeNode buildTree(List<Integer> nums) {
+        if (nums.size() == 0) {
             return null;
         }
-        return createBinaryTreeByArray(nums, 0);
+        return createBinaryTree(nums, 0);
     }
 
-    private static TreeNode createBinaryTreeByArray(int[] nums, int index) {
-        if (index >= nums.length) {
+    private static TreeNode createBinaryTree(List<Integer> nums, int index) {
+        if (index >= nums.size()) {
             return null;
         } else {
-            int value = nums[index];
+            Integer value = nums.get(index);
+            if (value == null) {
+                return null;
+            }
             TreeNode node = new TreeNode(value);
-            node.left = createBinaryTreeByArray(nums, 2 * index + 1);
-            node.right = createBinaryTreeByArray(nums, 2 * index + 2);
+            node.left = createBinaryTree(nums, 2 * index + 1);
+            node.right = createBinaryTree(nums, 2 * index + 2);
             return node;
         }
+    }
+
+    public static void main(String[] args) {
+        List<Integer> nums = Arrays.asList(1, 3, 2, null, 4, 5, null);
+        TreeNode root = buildTree(nums);
+        print(root);
+    }
+
+    public static List<Integer> leverOrder(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            res.add(node.val);
+            if (node.left != null) {
+                queue.offer(node.left);
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
+        }
+        return res;
+    }
+
+    public static List<Integer> leverOrderWithNull(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (node == null) {
+                res.add(null);
+            } else {
+                res.add(node.val);
+                queue.offer(node.left);
+                queue.offer(node.right);
+            }
+        }
+        return res;
+    }
+
+    public static void print(TreeNode root) {
+        List<Integer> res = leverOrderWithNull(root);
+        for (Integer i : res) {
+            if (i == null) {
+                System.out.print("null\t");
+            } else {
+                System.out.print(i + "\t");
+            }
+        }
+        System.out.println();
     }
 
     public static List<List<Integer>> levelOrder(TreeNode root) {
