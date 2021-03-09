@@ -1,5 +1,7 @@
 package com.xwd.backtracking;
 
+import com.xwd.util.ListUtil;
+
 import java.util.*;
 
 /**
@@ -33,12 +35,17 @@ public class SubsetsWithDup {
     private void dfs(List<List<Integer>> res, Deque<Integer> deque, int[] nums, int index) {
         res.add(new ArrayList<Integer>(deque));
         for (int i = index; i < nums.length; i++) {
-            if (i - 1 >= index && nums[i] == nums[i - 1]) {
+            if (i > index && nums[i] == nums[i - 1]) {
                 continue;
             }
             deque.addLast(nums[i]);
             dfs(res, deque, nums, i + 1);
             deque.removeLast();
         }
+    }
+    public static void main(String[] args) {
+        SubsetsWithDup subSets = new SubsetsWithDup();
+        List<List<Integer>> list = subSets.subsetsWithDup(new int[]{1, 2, 2});
+        ListUtil.print(list);
     }
 }

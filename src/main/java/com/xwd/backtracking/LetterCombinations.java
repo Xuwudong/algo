@@ -8,13 +8,13 @@ import java.util.Map;
 /**
  * 17. 电话号码的字母组合
  * 给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。
- *
+ * <p>
  * 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * 示例:
- *
+ * <p>
  * 输入："23"
  * 输出：["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
  * 说明:
@@ -40,20 +40,27 @@ public class LetterCombinations {
         if (digits == null || digits.equals("")) {
             return res;
         }
-        backTracking(res, new StringBuilder(), 0, digits);
+        StringBuilder sb = new StringBuilder();
+        dfs(sb, res, 0, digits);
         return res;
     }
 
-    private void backTracking(List<String> res, StringBuilder sb, int index, String digits) {
+    private void dfs(StringBuilder sb, List<String> res, int index, String digits) {
         if (index == digits.length()) {
             res.add(sb.toString());
             return;
         }
-        String value = map.get((digits.charAt(index) - 48));
-        for (int j = 0; j < value.length(); j++) {
-            sb.append(value.charAt(j));
-            backTracking(res, sb, index + 1, digits);
+        String value = map.get(digits.charAt(index) - 48);
+        for (int i = 0; i < value.length(); i++) {
+            sb.append(value.charAt(i));
+            dfs(sb, res, index + 1, digits);
             sb.deleteCharAt(sb.length() - 1);
         }
+    }
+
+    public static void main(String[] args) {
+        LetterCombinations l = new LetterCombinations();
+        List<String> list = l.letterCombinations("234");
+        System.out.println(list);
     }
 }
