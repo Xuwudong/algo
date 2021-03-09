@@ -1,5 +1,7 @@
 package com.xwd.backtracking;
 
+import com.xwd.util.ListUtil;
+
 import java.util.*;
 
 /**
@@ -57,8 +59,14 @@ public class CombinationSum2 {
             }
             path.addLast(arr[i]);
             // 因为元素不可以重复使用，这里递归传递下去的是 i + 1 而不是 i
-            dfs(res, path, arr, left - arr[i], index + 1);
+            dfs(res, path, arr, left - arr[i], i + 1);
             path.removeLast();
         }
+    }
+
+    public static void main(String[] args) {
+        CombinationSum2 c = new CombinationSum2();
+        List<List<Integer>> res = c.combinationSum2(new int[]{10,1,2,7,6,1,5}, 8);
+        ListUtil.print(res);
     }
 }

@@ -62,6 +62,7 @@ public class Permute {
             if (!used[i]) {
                 deque.addLast(nums[i]);
                 used[i] = true;
+                // 这里是first +1 ,first代表层数
                 dfs(res, deque, n, first + 1, used, nums);
                 deque.removeLast();
                 used[i] = false;
@@ -102,7 +103,7 @@ public class Permute {
 
     public static void main(String[] args) {
         Permute permute = new Permute();
-        List<List<Integer>> res = permute.permute3(new int[]{1, 2, 3});
+        List<List<Integer>> res = permute.permute(new int[]{1, 2, 3});
         permute.print(res);
     }
 

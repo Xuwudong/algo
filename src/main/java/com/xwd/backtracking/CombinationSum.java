@@ -1,5 +1,7 @@
 package com.xwd.backtracking;
 
+import com.xwd.util.ListUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,17 +40,39 @@ public class CombinationSum {
         return res;
     }
 
-    private void dfs(List<List<Integer>> res, List<Integer> list, int index, int[] candidates, int left) {
+//    private void dfs(List<List<Integer>> res, List<Integer> list, int index, int[] candidates, int left) {
+//        if (left == 0) {
+//            res.add(new ArrayList<>(list));
+//            return;
+//        }
+//        for (int i = index; i < candidates.length; i++) {
+//            if (candidates[i] <= left) {
+//                list.add(candidates[i]);
+//                dfs(res, list, i, candidates, left - candidates[i]);
+//                list.remove(list.size() - 1);
+//            }
+//        }
+//    }
+
+    private void dfs(List<List<Integer>> res, List<Integer> list, int index, int[] arr, int left) {
         if (left == 0) {
             res.add(new ArrayList<>(list));
             return;
         }
-        for (int i = index; i < candidates.length; i++) {
-            if (candidates[i] <= left) {
-                list.add(candidates[i]);
-                dfs(res, list, i, candidates, left - candidates[i]);
+        for (int i = index; i < arr.length; i++) {
+            if (arr[i] <= left) {
+                list.add(arr[i]);
+                // 注意这里递归的index取 i,而不是index，取index的话会遍历回去
+                dfs(res, list, i, arr, left - arr[i]);
                 list.remove(list.size() - 1);
             }
         }
     }
+
+    public static void main(String[] args) {
+        CombinationSum c = new CombinationSum();
+        List<List<Integer>> res = c.combinationSum(new int[]{2, 3, 6, 7}, 7);
+        ListUtil.print(res);
+    }
+
 }

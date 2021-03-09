@@ -15,6 +15,7 @@ public class PermuteUnique {
         List<List<Integer>> list = new ArrayList<>();
         Deque<Integer> deque = new ArrayDeque<>();
         boolean[] used = new boolean[nums.length];
+        // 有重复的队列，先排序
         Arrays.sort(nums);
         dfs(list, deque, nums, 0, used);
         return list;
@@ -26,6 +27,7 @@ public class PermuteUnique {
             return;
         }
         for (int i = 0; i < nums.length; i++) {
+            // 去重
             if (used[i] || (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])) {
                 continue;
             }
