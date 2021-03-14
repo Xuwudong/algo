@@ -58,6 +58,8 @@ public class IsAdditiveNumber {
     }
 
     public static void main(String[] args) {
+        System.out.println(new IsAdditiveNumber().isAdditiveNumber("11235813"));
+        System.out.println(new IsAdditiveNumber().isAdditiveNumber("0123"));
         System.out.println(new IsAdditiveNumber().isAdditiveNumber("101"));
         System.out.println(new IsAdditiveNumber().isAdditiveNumber("111"));
         System.out.println(new IsAdditiveNumber().isAdditiveNumber("112358"));
