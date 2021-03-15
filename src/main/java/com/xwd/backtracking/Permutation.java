@@ -56,4 +56,11 @@ public class Permutation {
         c[i] = c[j];
         c[j] = temp;
     }
+
+    public static void main(String[] args) {
+       String[] arr = new Permutation().permutation("abc");
+       for(String s: arr) {
+           System.out.print(s + "\t");
+       }
+    }
 }

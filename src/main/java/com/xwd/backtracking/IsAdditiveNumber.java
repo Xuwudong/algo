@@ -49,7 +49,7 @@ public class IsAdditiveNumber {
                     break;
                 }
             }
-            // 忽略false结果,等于 a || b 的逻辑，妙！
+            // 忽略false结果，妙！
             if (dfs(i + 1, previous + value, value, count + 1)) {
                 return true;
             }
