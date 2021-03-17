@@ -52,8 +52,17 @@ public class Permute {
         return res;
     }
 
+    /**
+     *
+     * @param res res
+     * @param deque deque
+     * @param n  n
+     * @param first 层数
+     * @param used 是否有使用到数组标记
+     * @param nums nums
+     */
     private void dfs(List<List<Integer>> res, Deque<Integer> deque, int n, int first, boolean[] used, int[] nums) {
-        if (first == n) {
+        if (deque.size() == n) {
             res.add(new ArrayList<>(deque));
             return;
         }
@@ -103,7 +112,7 @@ public class Permute {
 
     public static void main(String[] args) {
         Permute permute = new Permute();
-        List<List<Integer>> res = permute.permute(new int[]{1, 2, 3});
+        List<List<Integer>> res = permute.permute2(new int[]{1, 2, 3});
         permute.print(res);
     }
 
