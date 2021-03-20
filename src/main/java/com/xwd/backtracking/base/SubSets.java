@@ -1,31 +1,32 @@
-package com.xwd.backtracking;
+package com.xwd.backtracking.base;
 
 import com.xwd.util.ListUtil;
 
 import java.util.*;
 
 /**
- * 90. 子集 II
- * 给定一个可能包含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
+ * 78. 子集
+ * 给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
  * <p>
  * 说明：解集不能包含重复的子集。
  * <p>
  * 示例:
  * <p>
- * 输入: [1,2,2]
+ * 输入: nums = [1,2,3]
  * 输出:
  * [
- * [2],
+ * [3],
  * [1],
- * [1,2,2],
- * [2,2],
+ * [2],
+ * [1,2,3],
+ * [1,3],
+ * [2,3],
  * [1,2],
  * []
  * ]
  */
-public class SubsetsWithDup {
-    public List<List<Integer>> subsetsWithDup(int[] nums) {
-        Arrays.sort(nums);
+public class SubSets {
+    public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         Deque<Integer> deque = new ArrayDeque<>();
         dfs(res, deque, nums, 0);
@@ -33,19 +34,17 @@ public class SubsetsWithDup {
     }
 
     private void dfs(List<List<Integer>> res, Deque<Integer> deque, int[] nums, int index) {
-        res.add(new ArrayList<Integer>(deque));
+        res.add(new ArrayList<>(deque));
         for (int i = index; i < nums.length; i++) {
-            if (i > index && nums[i] == nums[i - 1]) {
-                continue;
-            }
             deque.addLast(nums[i]);
             dfs(res, deque, nums, i + 1);
             deque.removeLast();
         }
     }
+
     public static void main(String[] args) {
-        SubsetsWithDup subSets = new SubsetsWithDup();
-        List<List<Integer>> list = subSets.subsetsWithDup(new int[]{1, 2, 2});
+        SubSets subSets = new SubSets();
+        List<List<Integer>> list = subSets.subsets(new int[]{1, 2, 3});
         ListUtil.print(list);
     }
 }

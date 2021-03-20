@@ -1,4 +1,4 @@
-package com.xwd.backtracking;
+package com.xwd.backtracking.base;
 
 import java.util.ArrayList;
 import java.util.HashMap;
