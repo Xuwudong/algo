@@ -1,4 +1,4 @@
-package com.xwd.backtracking;
+package com.xwd.backtracking.expamd;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.xwd.backtracking;
+package com.xwd.backtracking.base;
 
 import com.xwd.util.ListUtil;
 
