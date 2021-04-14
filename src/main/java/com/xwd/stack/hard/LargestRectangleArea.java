@@ -36,6 +36,12 @@ import java.util.Stack;
  * @create: 2021-04-13 20:59
  **/
 public class LargestRectangleArea {
+    /**
+     * 单调栈
+     *
+     * @param heights
+     * @return
+     */
     public int largestRectangleArea(int[] heights) {
         int n = heights.length;
         int[] left = new int[n];
@@ -62,5 +68,90 @@ public class LargestRectangleArea {
             ans = Math.max(ans, (right[i] - left[i] - 1) * heights[i]);
         }
         return ans;
+    }
+
+    public int largestRectangleArea3(int[] heights) {
+        if (heights.length == 0) {
+            return 0;
+        }
+        int[] leftLessMin = new int[heights.length];
+        leftLessMin[0] = -1;
+        for (int i = 1; i < heights.length; i++) {
+            int l = i - 1;
+            while (l >= 0 && heights[l] >= heights[i]) {
+                l = leftLessMin[l];
+            }
+            leftLessMin[i] = l;
+        }
+
+        int[] rightLessMin = new int[heights.length];
+        rightLessMin[heights.length - 1] = heights.length;
+        for (int i = heights.length - 2; i >= 0; i--) {
+            int r = i + 1;
+            while (r <= heights.length - 1 && heights[r] >= heights[i]) {
+                r = rightLessMin[r];
+            }
+            rightLessMin[i] = r;
+        }
+        int maxArea = 0;
+        for (int i = 0; i < heights.length; i++) {
+            int area = (rightLessMin[i] - leftLessMin[i] - 1) * heights[i];
+            maxArea = Math.max(area, maxArea);
+        }
+        return maxArea;
+    }
+
+
+    /**
+     * 也是单调栈，但是不容易理解
+     *
+     * @param heights
+     * @return
+     */
+    public int largestRectangleArea2(int[] heights) {
+        int maxArea = 0;
+        Stack<Integer> stack = new Stack<>();
+        int p = 0;
+        while (p < heights.length) {
+            //栈空入栈
+            if (stack.isEmpty()) {
+                stack.push(p);
+                p++;
+            } else {
+                int top = stack.peek();
+                //当前高度大于栈顶，入栈
+                if (heights[p] >= heights[top]) {
+                    stack.push(p);
+                    p++;
+                } else {
+                    //保存栈顶高度
+                    int height = heights[stack.pop()];
+                    //左边第一个小于当前柱子的下标
+                    int leftLessMin = stack.isEmpty() ? -1 : stack.peek();
+                    //右边第一个小于当前柱子的下标
+                    int RightLessMin = p;
+                    //计算面积
+                    int area = (RightLessMin - leftLessMin - 1) * height;
+                    maxArea = Math.max(area, maxArea);
+                }
+            }
+        }
+        while (!stack.isEmpty()) {
+            //保存栈顶高度
+            int height = heights[stack.pop()];
+            //左边第一个小于当前柱子的下标
+            int leftLessMin = stack.isEmpty() ? -1 : stack.peek();
+            //右边没有小于当前高度的柱子，所以赋值为数组的长度便于计算
+            int RightLessMin = heights.length;
+            int area = (RightLessMin - leftLessMin - 1) * height;
+            System.out.println(area);
+            maxArea = Math.max(area, maxArea);
+        }
+        return maxArea;
+    }
+
+    public static void main(String[] args) {
+        LargestRectangleArea main = new LargestRectangleArea();
+        System.out.println(main.largestRectangleArea2(new int[]{3, 8, 9, 6, 7}));
     }
 }
