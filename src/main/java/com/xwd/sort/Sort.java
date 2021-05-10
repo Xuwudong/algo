@@ -2,6 +2,8 @@ package com.xwd.sort;
 
 public class Sort {
 
+    private int swapCount = 0;
+
     public void quickSort(int[] arr) {
         quickSort(arr, 0, arr.length - 1);
     }
@@ -28,6 +30,7 @@ public class Sort {
     }
 
     public void swap(int[] arr, int i, int j) {
+        swapCount++;
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -105,8 +108,22 @@ public class Sort {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 3, 5, 3, 6, 2, 90, 34, 54};
-        new Sort().quickSort(arr);
+//        int[] arr = new int[]{1, 3, 5, 3, 6, 2, 90, 34, 54};
+        int[] arr = new int[100];
+        for (int i = 0; i < 100; i++) {
+            arr[i] = i;
+        }
+        Sort sort = new Sort();
+        sort.quickSort(arr);
+        System.out.println("交换次数:" + sort.swapCount);
+
+        arr = new int[100];
+        for (int i = 0; i < 100; i++) {
+            arr[i] = 100 - i;
+        }
+        sort.swapCount = 0;
+        sort.quickSort(arr);
+        System.out.println("交换次数:" + sort.swapCount);
 //        new Sort().mergeSort(arr);
 //        new Sort().insertSort(arr);
         for (int i = 0; i < arr.length; i++) {
