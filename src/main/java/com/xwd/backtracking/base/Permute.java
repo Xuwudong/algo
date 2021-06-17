@@ -83,7 +83,6 @@ public class Permute {
         List<List<Integer>> res = new ArrayList<>();
         Deque<Integer> deque = new ArrayDeque<>();
         int n = nums.length;
-        boolean[] used = new boolean[n];
         dfs(res, deque, n, 0, nums);
         return res;
     }
@@ -114,12 +113,17 @@ public class Permute {
         Permute permute = new Permute();
         List<List<Integer>> res = permute.permute2(new int[]{1, 2, 3});
         permute.print(res);
+        res = permute.permute3(new int[]{1, 2, 3});
+        permute.print(res);
+        res = permute.permute(new int[]{1, 2, 3});
+        permute.print(res);
     }
 
     private void print(List<List<Integer>> res) {
         for (List<Integer> list : res) {
             System.out.print(list + "\t");
         }
+        System.out.println();
     }
 
 }

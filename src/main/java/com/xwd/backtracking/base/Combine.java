@@ -1,5 +1,7 @@
 package com.xwd.backtracking.base;
 
+import com.xwd.util.ListUtil;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -40,5 +42,11 @@ public class Combine {
             dfs(res, deque, n, k, i + 1);
             deque.removeLast();
         }
+    }
+
+    public static void main(String[] args) {
+        Combine main = new Combine();
+        List<List<Integer>> res = main.combine(4,2);
+        ListUtil.print(res);
     }
 }
