@@ -1,2 +1,254 @@
-111111111
-update
+b4bb316 HEAD@{0}: merge origin/test_reset: Fast-forward
+08e5115 HEAD@{1}: commit: feat: add test and update
+97a1316 HEAD@{2}: reset: moving to 97a13169d7091a9a98a4c427f0d2abf0cd5f70f7
+deec53a HEAD@{3}: commit: feat: add test
+97a1316 HEAD@{4}: reset: moving to 97a13169d7091a9a98a4c427f0d2abf0cd5f70f7
+d21dc07 HEAD@{5}: rebase (finish): returning to refs/heads/test_reset
+d21dc07 HEAD@{6}: rebase (pick): feat: add 4
+97a1316 HEAD@{7}: rebase (start): checkout origin/test_reset
+51bb9ea HEAD@{8}: commit: feat: add 4
+3b7c189 HEAD@{9}: checkout: moving from master to test_reset
+3b7c189 HEAD@{10}: checkout: moving from dev to master
+de54f1c HEAD@{11}: checkout: moving from master to dev
+3a2e220 HEAD@{12}: checkout: moving from feature2 to master
+a56c8a9 HEAD@{13}: merge feature6: Fast-forward
+fa3d5cc HEAD@{14}: reset: moving to fa3d5ccf5acabfd90080f639f301f52c6b74f9f7
+a56c8a9 HEAD@{15}: merge feature6: Fast-forward
+fa3d5cc HEAD@{16}: reset: moving to fa3d5ccf5acabfd90080f639f301f52c6b74f9f7
+663a075 HEAD@{17}: checkout: moving from feature6 to feature2
+a56c8a9 HEAD@{18}: commit: feat: add 4
+663a075 HEAD@{19}: checkout: moving from feature2 to feature6
+663a075 HEAD@{20}: commit: feat: detele 3 and update
+fa3d5cc HEAD@{21}: merge feature5: Fast-forward
+2dcf361 HEAD@{22}: reset: moving to 2dcf3614cef20b0ac05c6076a7779fd0d57b7c04
+2133728 HEAD@{23}: reset: moving to 2133728fc33b39abb36380f391b31888283063f5
+2dcf361 HEAD@{24}: reset: moving to 2dcf3614cef20b0ac05c6076a7779fd0d57b7c04
+fa3d5cc HEAD@{25}: merge feature5: Fast-forward
+2dcf361 HEAD@{26}: reset: moving to 2dcf3614cef20b0ac05c6076a7779fd0d57b7c04
+7c3efac HEAD@{27}: checkout: moving from feature5 to feature2
+fa3d5cc HEAD@{28}: commit: feat: add 3
+7c3efac HEAD@{29}: checkout: moving from feature2 to feature5
+7c3efac HEAD@{30}: commit: feat: delete add1 and update
+2dcf361 HEAD@{31}: checkout: moving from feature4 to feature2
+2133728 HEAD@{32}: checkout: moving from feature2 to feature4
+2dcf361 HEAD@{33}: reset: moving to 2dcf3614cef20b0ac05c6076a7779fd0d57b7c04
+2a4381a HEAD@{34}: merge feature4: Merge made by the 'recursive' strategy.
+2dcf361 HEAD@{35}: commit: Revert "feat: delete add1 and update"
+f153de1 HEAD@{36}: checkout: moving from feature4 to feature2
+2133728 HEAD@{37}: commit: feat: add2
+f153de1 HEAD@{38}: checkout: moving from feature2 to feature4
+f153de1 HEAD@{39}: commit: feat: delete add1 and update
+aea829d HEAD@{40}: commit: feat: add1
+f73cc27 HEAD@{41}: commit (merge): Merge branch 'feature3' into feature2
+5d68b4f HEAD@{42}: commit: Revert "feat:test 4"
+df47239 HEAD@{43}: checkout: moving from feature3 to feature2
+aa1d889 HEAD@{44}: commit: feat: test 6
+df47239 HEAD@{45}: checkout: moving from feature2 to feature3
+df47239 HEAD@{46}: commit: feat: test 5
+82da26c HEAD@{47}: reset: moving to 82da26cb55ffd17a6b55630ba37b59137e50aaa4
+1d85a3d HEAD@{48}: commit: feat: test 5
+82da26c HEAD@{49}: reset: moving to 82da26cb55ffd17a6b55630ba37b59137e50aaa4
+2f3c3a5 HEAD@{50}: commit: feat: test 5
+82da26c HEAD@{51}: rebase (continue) (finish): returning to refs/heads/feature2
+82da26c HEAD@{52}: rebase (continue) (pick): feat:test 4
+240f89d HEAD@{53}: rebase (continue) (pick): Revert "feat: edit test 3"
+a3c056e HEAD@{54}: rebase (continue) (pick): feat: edit test 3
+d02c2ab HEAD@{55}: rebase (pick): feat: add line8
+3a2e220 HEAD@{56}: rebase (start): checkout master
+3fcc790 HEAD@{57}: reset: moving to 3fcc790f1fba8318c518b856e63c5d0d452a99df
+f0aee89 HEAD@{58}: commit: feat: test 5
+3fcc790 HEAD@{59}: reset: moving to 3fcc790f1fba8318c518b856e63c5d0d452a99df
+057f47e HEAD@{60}: commit: feat: test 5
+3fcc790 HEAD@{61}: merge origin/feature2: Fast-forward
+af27ca6 HEAD@{62}: reset: moving to af27ca608fc9355908919f7d41b49af3eedb61bd
+ec8590b HEAD@{63}: merge origin/feature2: Fast-forward
+af27ca6 HEAD@{64}: reset: moving to af27ca608fc9355908919f7d41b49af3eedb61bd
+ec8590b HEAD@{65}: reset: moving to ec8590b00c00a325fed4418ef7f3649c60417c5f
+ec8590b HEAD@{66}: reset: moving to ec8590b00c00a325fed4418ef7f3649c60417c5f
+ec8590b HEAD@{67}: reset: moving to ec8590b00c00a325fed4418ef7f3649c60417c5f
+ec8590b HEAD@{68}: reset: moving to ec8590b00c00a325fed4418ef7f3649c60417c5f
+af27ca6 HEAD@{69}: reset: moving to af27ca608fc9355908919f7d41b49af3eedb61bd
+ec8590b HEAD@{70}: commit: Revert "feat: edit test 3"
+af27ca6 HEAD@{71}: rebase (continue) (finish): returning to refs/heads/feature2
+af27ca6 HEAD@{72}: rebase (continue): feat: edit test 3
+3ef74d5 HEAD@{73}: rebase (start): checkout origin/feature2
+ad87304 HEAD@{74}: commit: feat: edit test 3
+cdc4c1f HEAD@{75}: reset: moving to cdc4c1f3fd9fdd99c6df64576a73725351e4596f
+3ef74d5 HEAD@{76}: rebase (finish): returning to refs/heads/feature2
+3ef74d5 HEAD@{77}: rebase (start): checkout origin/feature2
+cdc4c1f HEAD@{78}: reset: moving to cdc4c1f3fd9fdd99c6df64576a73725351e4596f
+3ef74d5 HEAD@{79}: commit: feat: test 3
+cdc4c1f HEAD@{80}: rebase (finish): returning to refs/heads/feature2
+cdc4c1f HEAD@{81}: rebase (start): checkout origin/feature2
+0856d43 HEAD@{82}: reset: moving to 0856d438d79f658710298ebf1014212de846c95c
+3d8d5ad HEAD@{83}: reset: moving to 3d8d5ade1264dc3e7edfa077aafb06d4c8299b52
+cdc4c1f HEAD@{84}: rebase (finish): returning to refs/heads/feature2
+cdc4c1f HEAD@{85}: rebase (start): checkout origin/feature2
+3d8d5ad HEAD@{86}: reset: moving to 3d8d5ade1264dc3e7edfa077aafb06d4c8299b52
+cdc4c1f HEAD@{87}: rebase (finish): returning to refs/heads/feature2
+cdc4c1f HEAD@{88}: rebase (pick): feat:test 2
+3d8d5ad HEAD@{89}: rebase (pick): feat:test 1
+0629025 HEAD@{90}: rebase (start): checkout origin/feature2
+1e5af47 HEAD@{91}: rebase (continue) (finish): returning to refs/heads/feature2
+1e5af47 HEAD@{92}: rebase (pick): feat: add line8
+0856d43 HEAD@{93}: rebase (start): checkout master
+0629025 HEAD@{94}: rebase (finish): returning to refs/heads/feature2
+0629025 HEAD@{95}: rebase (pick): feat:delete
+de695b4 HEAD@{96}: rebase (start): checkout origin/feature2
+7f6eefc HEAD@{97}: rebase (continue) (finish): returning to refs/heads/feature2
+7f6eefc HEAD@{98}: rebase (pick): feat: add line8
+5dd6597 HEAD@{99}: rebase (start): checkout master
+de695b4 HEAD@{100}: merge master: Merge made by the 'recursive' strategy.
+7b26a99 HEAD@{101}: merge origin/master: Merge made by the 'recursive' strategy.
+be1e3a8 HEAD@{102}: rebase (finish): returning to refs/heads/feature2
+be1e3a8 HEAD@{103}: rebase (pick): feat:add test18
+65a2572 HEAD@{104}: rebase (start): checkout origin/feature2
+4a2a5c5 HEAD@{105}: rebase (finish): returning to refs/heads/feature2
+4a2a5c5 HEAD@{106}: rebase (pick): feat: add line8
+ef8fa0f HEAD@{107}: rebase (start): checkout master
+65a2572 HEAD@{108}: commit: feat: add line8
+9d729f2 HEAD@{109}: rebase (finish): returning to refs/heads/feature2
+9d729f2 HEAD@{110}: rebase (start): checkout master
+ba1d882 HEAD@{111}: checkout: moving from master to feature2
+ba1d882 HEAD@{112}: checkout: moving from feature1 to master
+2ff987c HEAD@{113}: rebase (finish): returning to refs/heads/feature1
+2ff987c HEAD@{114}: rebase (pick): feat:add test16
+f4ecc08 HEAD@{115}: rebase (start): checkout origin/feature1
+36402db HEAD@{116}: rebase (finish): returning to refs/heads/feature1
+36402db HEAD@{117}: rebase (pick): feat: add line7
+195ee65 HEAD@{118}: rebase (pick): feat: add line6
+d315f38 HEAD@{119}: rebase (pick): feat: add line5
+ba1d882 HEAD@{120}: rebase (start): checkout master
+f4ecc08 HEAD@{121}: commit: feat: add line7
+1c8c14a HEAD@{122}: rebase (finish): returning to refs/heads/feature1
+1c8c14a HEAD@{123}: rebase (pick): feat:add test15
+bc3f672 HEAD@{124}: rebase (start): checkout origin/feature1
+0c5e84e HEAD@{125}: rebase (finish): returning to refs/heads/feature1
+0c5e84e HEAD@{126}: rebase (pick): feat: add line6
+4a6204b HEAD@{127}: rebase (pick): feat: add line5
+a035116 HEAD@{128}: rebase (start): checkout master
+bc3f672 HEAD@{129}: rebase (finish): returning to refs/heads/feature1
+bc3f672 HEAD@{130}: rebase (pick): feat:add test14
+03556cc HEAD@{131}: rebase (start): checkout origin/feature1
+3af213f HEAD@{132}: rebase (finish): returning to refs/heads/feature1
+3af213f HEAD@{133}: rebase (pick): feat: add line6
+27d9756 HEAD@{134}: rebase (pick): feat: add line5
+2b53a63 HEAD@{135}: rebase (start): checkout master
+03556cc HEAD@{136}: rebase (finish): returning to refs/heads/feature1
+03556cc HEAD@{137}: rebase (start): checkout origin/feature1
+548515f HEAD@{138}: rebase (finish): returning to refs/heads/feature1
+548515f HEAD@{139}: rebase (pick): feat: add line6
+0563b87 HEAD@{140}: rebase (pick): feat: add line5
+e042d25 HEAD@{141}: rebase (start): checkout origin/master
+03556cc HEAD@{142}: commit: feat: add line6
+a385684 HEAD@{143}: rebase (finish): returning to refs/heads/feature1
+a385684 HEAD@{144}: rebase (pick): feat:add test13
+ff407fb HEAD@{145}: rebase (start): checkout origin/feature1
+f10e594 HEAD@{146}: rebase (finish): returning to refs/heads/feature1
+f10e594 HEAD@{147}: rebase (pick): feat: add line5
+e042d25 HEAD@{148}: rebase (start): checkout master
+ff407fb HEAD@{149}: rebase (finish): returning to refs/heads/feature1
+ff407fb HEAD@{150}: rebase (start): checkout origin/feature1
+3481d38 HEAD@{151}: rebase (finish): returning to refs/heads/feature1
+3481d38 HEAD@{152}: rebase (pick): feat: add line5
+3e41160 HEAD@{153}: rebase (start): checkout master
+ff407fb HEAD@{154}: rebase (finish): returning to refs/heads/feature1
+ff407fb HEAD@{155}: rebase (start): checkout origin/feature1
+bcd0b29 HEAD@{156}: rebase (finish): returning to refs/heads/feature1
+bcd0b29 HEAD@{157}: rebase (pick): feat: add line5
+3e41160 HEAD@{158}: rebase (start): checkout master
+ff407fb HEAD@{159}: rebase (finish): returning to refs/heads/feature1
+ff407fb HEAD@{160}: rebase (start): checkout origin/feature1
+f61f347 HEAD@{161}: rebase (finish): returning to refs/heads/feature1
+f61f347 HEAD@{162}: rebase (pick): feat: add line5
+3e41160 HEAD@{163}: rebase (start): checkout origin/master
+ff407fb HEAD@{164}: rebase (finish): returning to refs/heads/feature1
+ff407fb HEAD@{165}: rebase (pick): feat:add test12
+7ef07b5 HEAD@{166}: rebase (start): checkout origin/feature1
+ebc22df HEAD@{167}: rebase (finish): returning to refs/heads/feature1
+ebc22df HEAD@{168}: rebase (pick): feat: add line5
+3e41160 HEAD@{169}: rebase (start): checkout master
+7ef07b5 HEAD@{170}: rebase (finish): returning to refs/heads/feature1
+7ef07b5 HEAD@{171}: rebase (pick): feat:add test11
+3df7488 HEAD@{172}: rebase (start): checkout origin/feature1
+d7b72ed HEAD@{173}: rebase (finish): returning to refs/heads/feature1
+d7b72ed HEAD@{174}: rebase (pick): feat: add line5
+3cd7570 HEAD@{175}: rebase (start): checkout master
+3df7488 HEAD@{176}: rebase (finish): returning to refs/heads/feature1
+3df7488 HEAD@{177}: rebase (pick): feat: add line5
+955017c HEAD@{178}: rebase (start): checkout master
+8ec83a1 HEAD@{179}: commit: feat: add line5
+3614285 HEAD@{180}: checkout: moving from master to feature1
+3614285 HEAD@{181}: checkout: moving from dev to master
+de54f1c HEAD@{182}: rebase (finish): returning to refs/heads/dev
+de54f1c HEAD@{183}: rebase (start): checkout origin/dev
+5e17f5c HEAD@{184}: reset: moving to 5e17f5ce3df5c419284ce4c9bfe8a30fd8465d38
+3614285 HEAD@{185}: reset: moving to 36142851d48437dac60c60fbfc9aa2e11add081a
+de54f1c HEAD@{186}: merge master: Merge made by the 'recursive' strategy.
+022b9fd HEAD@{187}: commit (merge): Merge branch 'master' into dev
+ec7396d HEAD@{188}: rebase (finish): returning to refs/heads/dev
+ec7396d HEAD@{189}: rebase (start): checkout origin/dev
+a4c5377 HEAD@{190}: rebase (finish): returning to refs/heads/dev
+a4c5377 HEAD@{191}: rebase (pick): feat: add line4
+b1bacda HEAD@{192}: rebase (start): checkout master
+ec7396d HEAD@{193}: rebase (finish): returning to refs/heads/dev
+ec7396d HEAD@{194}: rebase (start): checkout origin/dev
+90d9367 HEAD@{195}: rebase (finish): returning to refs/heads/dev
+90d9367 HEAD@{196}: rebase (pick): feat: add line4
+b1bacda HEAD@{197}: rebase (start): checkout master
+ec7396d HEAD@{198}: rebase (finish): returning to refs/heads/dev
+ec7396d HEAD@{199}: rebase (start): checkout origin/dev
+73b8982 HEAD@{200}: rebase (finish): returning to refs/heads/dev
+73b8982 HEAD@{201}: rebase (pick): feat: add line4
+b1bacda HEAD@{202}: rebase (start): checkout master
+ec7396d HEAD@{203}: rebase (finish): returning to refs/heads/dev
+ec7396d HEAD@{204}: rebase (start): checkout origin/dev
+84b5804 HEAD@{205}: rebase (finish): returning to refs/heads/dev
+84b5804 HEAD@{206}: rebase (pick): feat: add line4
+b1bacda HEAD@{207}: rebase (start): checkout origin/master
+ec7396d HEAD@{208}: rebase (finish): returning to refs/heads/dev
+ec7396d HEAD@{209}: rebase (pick): feat:add test7
+a78b623 HEAD@{210}: rebase (start): checkout origin/dev
+69dfab5 HEAD@{211}: rebase (finish): returning to refs/heads/dev
+69dfab5 HEAD@{212}: rebase (pick): feat: add line4
+b1bacda HEAD@{213}: rebase (start): checkout master
+a78b623 HEAD@{214}: merge master: Merge made by the 'recursive' strategy.
+73b78dd HEAD@{215}: commit: feat: add line4
+d23c713 HEAD@{216}: merge master: Fast-forward
+3f899fc HEAD@{217}: rebase (finish): returning to refs/heads/dev
+3f899fc HEAD@{218}: rebase (start): checkout master
+3fef0c3 HEAD@{219}: rebase (finish): returning to refs/heads/dev
+3fef0c3 HEAD@{220}: rebase (start): checkout origin/dev
+6bfa6c2 HEAD@{221}: rebase (finish): returning to refs/heads/dev
+6bfa6c2 HEAD@{222}: rebase (squash): feat:rebase test
+5e675ff HEAD@{223}: rebase (start): checkout HEAD~2
+3fef0c3 HEAD@{224}: checkout: moving from master to dev
+3f899fc HEAD@{225}: pull: Merge made by the 'recursive' strategy.
+bf82a6c HEAD@{226}: rebase (finish): returning to refs/heads/master
+bf82a6c HEAD@{227}: rebase (squash): fix:rebase test
+5e675ff HEAD@{228}: rebase (start): checkout HEAD~2
+3fef0c3 HEAD@{229}: rebase (finish): returning to refs/heads/master
+3fef0c3 HEAD@{230}: rebase (start): checkout origin/master
+c307d89 HEAD@{231}: rebase (finish): returning to refs/heads/master
+c307d89 HEAD@{232}: rebase (squash): fix:rebase test
+5e675ff HEAD@{233}: rebase (start): checkout HEAD~2
+3fef0c3 HEAD@{234}: rebase (finish): returning to refs/heads/master
+3fef0c3 HEAD@{235}: rebase (start): checkout origin/master
+bf14bbe HEAD@{236}: rebase (finish): returning to refs/heads/master
+bf14bbe HEAD@{237}: rebase (squash): fix: rebase 2 commit
+5e675ff HEAD@{238}: rebase (start): checkout HEAD~2
+3fef0c3 HEAD@{239}: rebase (finish): returning to refs/heads/master
+3fef0c3 HEAD@{240}: rebase (pick): feat: add line3
+5e675ff HEAD@{241}: rebase (start): checkout origin/master
+e3e43fd HEAD@{242}: commit: feat: add line3
+443b71d HEAD@{243}: merge origin/master: Merge made by the 'recursive' strategy.
+98530ab HEAD@{244}: commit: feat: add line2
+381a4e8 HEAD@{245}: rebase: checkout master
+381a4e8 HEAD@{246}: rebase: checkout master
+381a4e8 HEAD@{247}: merge origin/master: Merge made by the 'recursive' strategy.
+2e0158e HEAD@{248}: commit: feat: add line
+1c3f0bf HEAD@{249}: rebase: checkout master
+1c3f0bf HEAD@{250}: rebase: checkout master
+1c3f0bf HEAD@{251}: clone: from github.com:Xuwudong/algo.git
+
+
